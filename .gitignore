@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# dotenv environment variables file
+.env
+
 # production
 /build
 
