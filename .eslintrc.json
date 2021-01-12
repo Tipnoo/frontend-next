@@ -12,9 +12,7 @@
     ],
     "env": {
       "browser": true,
-      "commonjs": true,
       "es6": true,
-      "node": true,
       "jest": true
     },
     "parserOptions": {
@@ -31,7 +29,16 @@
     },
     "rules": {
         "prettier/prettier": "error",
-        "no-underscore-dangle": "off"
+        "no-underscore-dangle": "off",
+        "react/react-in-jsx-scope": "off",
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "components": "['Link']",
+                "specialLink": "['hrefLeft', 'hrefRight']",
+                "aspects": "['invalidHref', 'preferButton']"
+            }
+        ]
       },
     "plugins": ["prettier", "react", "import"]
   }
