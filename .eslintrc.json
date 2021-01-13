@@ -1,44 +1,54 @@
 {
-    "root": true,
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
     "parser": "babel-eslint",
     "extends": [
-      "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:import/errors",
-      "plugin:import/warnings",
-      "plugin:jsx-a11y/recommended",
-      "plugin:react-hooks/recommended",
-      "airbnb-base"
+        "eslint:recommended",
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:react/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:jsx-a11y/recommended"
     ],
-    "env": {
-      "browser": true,
-      "es6": true,
-      "jest": true
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
     },
     "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
     },
     "settings": {
-      "react": {
-        "version": "detect"
-      }
+        "react": {
+            "version": "detect"
+        }
     },
+    "plugins": [
+        "react",
+        "react-hooks"
+    ],
     "rules": {
-        "prettier/prettier": "error",
-        "no-underscore-dangle": "off",
         "react/react-in-jsx-scope": "off",
-        "jsx-a11y/anchor-is-valid": [
-            "error",
+        "react/prop-types": "off",
+        "max-len": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "react/jsx-filename-extension": [
+            1,
             {
-                "components": "['Link']",
-                "specialLink": "['hrefLeft', 'hrefRight']",
-                "aspects": "['invalidHref', 'preferButton']"
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
             }
-        ]
-      },
-    "plugins": ["prettier", "react", "import"]
-  }
+        ],
+        "react/display-name": 1
+    }
+}

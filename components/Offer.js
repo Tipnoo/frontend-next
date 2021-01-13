@@ -110,18 +110,17 @@ const Offer = (props, {offers}) => {
   }
 };
 
-
-export const getStaticProps = async () => {
-  const res = await getOffers();
-  const offers = await res.data;
+// export const getStaticProps = async () => {
+//   const res = await getOffers();
+//   const offers = await res.data;
   
-  return {data: res.data}
+//   return {data: res.data}
 
-  return {
-      props:{
-         offers,
-      }
-  }
-}
+//   return {
+//       props:{
+//          offers,
+//       }
+//   }
+// }
 
 export default Offer;

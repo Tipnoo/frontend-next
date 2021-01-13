@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
+import Head from 'next/head';
 import Headerhomepage from '../components/headers/Header-homepage';
 import EmailMarketing from '../components/EmailMarketing';
 import Offer from '../components/Offer';
 import PopupEmailSubscribed from '../components/popups/Popup-emailSubscribed';
 import Footer from '../components/Footer';
-import Head from 'next/head'
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -26,9 +26,9 @@ const Home = () => {
 
   return (
     <div>
-    <Head>
+      <Head>
         <title>Tipnoo Nextjs</title>
-    </Head>
+      </Head>
       <Headerhomepage searchQuery={search} />
       {marketingBar ? (
         <EmailMarketing
