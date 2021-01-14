@@ -14,19 +14,23 @@ const Footer = () => {
           />
         </div>
         <div className="flex-1 mt-6">
-          <Link className="text-white block" href="/esports-offer">
-            <b>Post an Offer</b>
+          <Link href="/esports-offer">
+            <b className="text-white block">Post an Offer</b>
           </Link>
-          <Link className="text-white block" href="/privacy-cookies">
-            <b>Privacy & Cookies</b>
+          <Link href="/privacy-cookies">
+            <b className="text-white block">Privacy & Cookies</b>
           </Link>
-          <Link className="text-white block" href="/contact">
-            <b>Contact</b>
+          <Link href="/contact">
+            <b className="text-white block">Contact</b>
           </Link>
         </div>
       </div>
       <h4 className="text-gray-400 pt-8 pl-8">
-        <b>{getFullYear()} © Tipnoo</b>
+        <b>
+          {getFullYear()}
+          {' '}
+          © Tipnoo
+        </b>
       </h4>
     </div>
   );

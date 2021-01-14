@@ -9,7 +9,7 @@ import Submitting from '../components/messages/Submitting';
 
 import { addOffer } from '../services/apiClient/offers';
 
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(`${process.env.REACT_APP_STRIPE_PUBLIC_KEY}`);
 
 const initialValues = {
   playerPosition: 'Player Position',

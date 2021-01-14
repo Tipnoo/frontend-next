@@ -31,7 +31,7 @@ const ContactUs = () => (
           <p className="p-2 font-semibold text-gray-600">
             You can let us know about your experience using Tipnoo clicking
             {' '}
-            <a href="https://legismusic.typeform.com/to/igbO4azb">here</a>
+            <a className="text-indigo-600" href="https://legismusic.typeform.com/to/igbO4azb">here</a>
             .
           </p>
         </div>
