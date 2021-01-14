@@ -1,0 +1,28 @@
+
+.StripeElement {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    background-color: white;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.25rem;
+}
+
+.StripeElement--focus {
+    border: 2px solid #F6AD55;
+    outline:0;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.StripeElement--invalid {
+    border: 2px solid #F6AD55;
+    outline:0;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+@media (max-height: 400px) {
+    #submitBtn {
+        display: none;
+    }
+}

@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import SimpleMDE from 'react-simplemde-editor';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import { CardElement } from '@stripe/react-stripe-js';
 import PopupImageSize from './popups/Popup-imageSize';
-
-import '../assets/cardStyle.css';
 
 import 'easymde/dist/easymde.min.css';
 
