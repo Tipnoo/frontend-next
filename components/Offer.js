@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 
 import OfferCard from './OfferCard';
@@ -16,8 +17,8 @@ const STATUS = {
   ERROR: 'ERROR',
 };
 
-const Offer = (props, {offers}) => {
-  // const [offers, setOffers] = useState([]);
+const Offer = (props) => {
+  const [offers, setOffers] = useState([]);
   const [errors, setErrors] = useState(undefined);
   const [status, setStatus] = useState(STATUS.LOADING);
 
@@ -34,26 +35,31 @@ const Offer = (props, {offers}) => {
   // }, []);
 
   useEffect(() => {
-    console.log('props', props)
-    console.log('offers', offers)
+    getOffers()
+      .then((res) => {
+        console.log('response from lastestt', res);
+        setOffers(res.data);
+        setStatus(STATUS.LOADED);
+      })
+      .catch((error) => {
+        setErrors(error.name);
+        setStatus(STATUS.ERROR);
+      });
+
+    console.log('props', props);
+    console.log('offers', offers);
   }, []);
 
-  
-
   const sortByDate = () => {
-    offers.sort((a, b) => {
-      return new Date(b.created_at) - new Date(a.created_at);
-    });
+    offers.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
   };
 
-  const timePassedSincePublication = () => {
-    return offers.map((offer) => {
-      offer.timePassed = `${formatDistanceToNow(
-        new Date(offer.created_at)
-      )} ago`;
-      return offer;
-    });
-  };
+  const timePassedSincePublication = () => offers.map((offer) => {
+    offer.timePassed = `${formatDistanceToNow(
+      new Date(offer.created_at),
+    )} ago`;
+    return offer;
+  });
 
   const searchFilterRendering = () => {
     const offersUpdated = offers.map((offer) => {
@@ -62,20 +68,16 @@ const Offer = (props, {offers}) => {
     });
 
     if (props.searchQuery === '') {
-      return offers.map((offer, index) => {
-        return (
-          <OfferCard offer={offer} key={index}>
-            <CardHiddenContent offer={offer} key={index} />
-          </OfferCard>
-        );
-      });
+      return offers.map((offer, index) => (
+        <OfferCard offer={offer} key={index}>
+          <CardHiddenContent offer={offer} key={index} />
+        </OfferCard>
+      ));
     }
 
-    const thereIsAMatch = offersUpdated.map((offer) => {
-      return offer.fullSearchQuery
-        .toLowerCase()
-        .includes(props.searchQuery.toLowerCase());
-    });
+    const thereIsAMatch = offersUpdated.map((offer) => offer.fullSearchQuery
+      .toLowerCase()
+      .includes(props.searchQuery.toLowerCase()));
 
     if (props.searchQuery !== '' && thereIsAMatch.includes(true)) {
       return offersUpdated.map((offer, index) => {
@@ -90,7 +92,7 @@ const Offer = (props, {offers}) => {
             </OfferCard>
           );
         }
-        return <div key={index}></div>;
+        return <div key={index} />;
       });
     }
     return <NoSearchMatch />;
@@ -110,17 +112,21 @@ const Offer = (props, {offers}) => {
   }
 };
 
-// export const getStaticProps = async () => {
-//   const res = await getOffers();
-//   const offers = await res.data;
-  
-//   return {data: res.data}
+export async function getServerSideProps() {
+// Fetch data from external API
+  const response = getOffers()
+    .then((res) => {
+      console.log('response from databased', res);
+      setOffers(res.data);
+      setStatus(STATUS.LOADED);
+    })
+    .catch((error) => {
+      setErrors(error.name);
+      setStatus(STATUS.ERROR);
+    });
 
-//   return {
-//       props:{
-//          offers,
-//       }
-//   }
-// }
+  // Pass data to the page via props
+  return { props: { response } };
+}
 
 export default Offer;

@@ -28,7 +28,7 @@ const PrivacyCookies = () => {
             <AddIcon />
           </div>
           <div className="flex-1">
-            <p
+            <p 
               onClick={() => openDropDown(index)}
               className="p-2 font-bold text-gray-600"
             >

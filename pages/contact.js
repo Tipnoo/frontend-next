@@ -17,7 +17,7 @@ const ContactUs = () => (
       <div className="w-5/6 mx-auto mt-8">
         <div className="text-lg">
           <b>
-            Hello, I'm Az-345!
+            Hello, I&apos;m Az-345!
             {' '}
             <br />
             Tipnoo is mostly run by robots, but if you send us an email to
