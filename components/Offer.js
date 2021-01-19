@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { formatDistanceToNow } from 'date-fns';
 
 import OfferCard from './OfferCard';
@@ -22,22 +21,9 @@ const Offer = (props) => {
   const [errors, setErrors] = useState(undefined);
   const [status, setStatus] = useState(STATUS.LOADING);
 
-  // useEffect(() => {
-  //   getOffers()
-  //     .then((res) => {
-  //       setOffers(res.data);
-  //       setStatus(STATUS.LOADED);
-  //     })
-  //     .catch((error) => {
-  //       setErrors(error.name);
-  //       setStatus(STATUS.ERROR);
-  //     });
-  // }, []);
-
   useEffect(() => {
     getOffers()
       .then((res) => {
-        console.log('response from lastestt', res);
         setOffers(res.data);
         setStatus(STATUS.LOADED);
       })
@@ -45,9 +31,6 @@ const Offer = (props) => {
         setErrors(error.name);
         setStatus(STATUS.ERROR);
       });
-
-    console.log('props', props);
-    console.log('offers', offers);
   }, []);
 
   const sortByDate = () => {
@@ -102,31 +85,13 @@ const Offer = (props) => {
     case STATUS.LOADING:
       return <Loading />;
     case STATUS.LOADED:
-      // sortByDate();
-      // timePassedSincePublication();
-      // return <div>{searchFilterRendering()}</div>;
-      return <div>hello</div>;
+      sortByDate();
+      timePassedSincePublication();
+      return <div>{searchFilterRendering()}</div>;
     case STATUS.ERROR:
       return <ErrorAlert error={errors} />;
     // no default
   }
 };
-
-export async function getServerSideProps() {
-// Fetch data from external API
-  const response = getOffers()
-    .then((res) => {
-      console.log('response from databased', res);
-      setOffers(res.data);
-      setStatus(STATUS.LOADED);
-    })
-    .catch((error) => {
-      setErrors(error.name);
-      setStatus(STATUS.ERROR);
-    });
-
-  // Pass data to the page via props
-  return { props: { response } };
-}
 
 export default Offer;
