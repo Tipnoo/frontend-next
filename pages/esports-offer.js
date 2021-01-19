@@ -54,13 +54,12 @@ const PostAnOffer = () => {
     } else {
       const imgSize = e.target.files[0].size;
       if (imgSize <= 1000000) {
-        this.setState({
-          teamLogo: e.target.files[0],
-          file: URL.createObjectURL(e.target.files[0]),
-        });
+        setValues({ ...values, teamLogo: e.target.files[0], file: URL.createObjectURL(e.target.files[0]) });
       } else {
-        this.setState({
+        setValues({
+          ...values,
           errors: {
+            ...values.errors,
             imgFileSize: true,
           },
           imgActualSize: imgSize,
@@ -70,21 +69,15 @@ const PostAnOffer = () => {
   };
 
   const mdeHandleChangeDescription = (e) => {
-    this.setState({
-      positionDescription: e,
-    });
+    setValues({ ...values, positionDescription: e });
   };
 
   const mdeHandleChangeRequirements = (e) => {
-    this.setState({
-      positionRequirements: e,
-    });
+    setValues({ ...values, positionRequirements: e });
   };
 
   const mdeHandleChangeHowToApply = (e) => {
-    this.setState({
-      howToApply: e,
-    });
+    setValues({ ...values, howToApply: e });
   };
 
   const handleSubmit = async (e, id) => {
@@ -128,10 +121,10 @@ const PostAnOffer = () => {
           invoiceNotes,
           id,
         },
-        teamLogo
+        teamLogo,
       )
         .then((res) => {
-          history.push(`/success`);
+          history.push('/success');
         })
         .catch((error) => {
           console.log(error);
@@ -165,9 +158,11 @@ const PostAnOffer = () => {
   };
 
   const closePopupImgSize = () => {
-    this.setState({
+    setValues({
+      ...values,
       errors: {
-        imgFileSize: !this.state.errors.imgFileSize,
+        ...values.errors,
+        imgFileSize: !values.errors.imgFileSize,
       },
     });
   };
@@ -175,44 +170,44 @@ const PostAnOffer = () => {
   return (
     <div>
       <HeaderPostAnOffer
-        title={'Post your Offer on Tipnoo and Find the best players for your eSports Team within hours'}
-        />
-        <div className="absolute w-screen">
-          {values.isSubmitting ? (
-            <Submitting />
-          ) : (
-            <div>
-              <Elements stripe={stripePromise}>
-                <ElementsConsumer>
-                  {({ elements, stripe }) => (
-                    <AddUpdateOffer
-                      handleChange={handleChange}
-                      handleFileChange={handleFileChange}
-                      handleSubmit={handleSubmit}
-                      mdeHandleChangeDescription={
+        title="Post your Offer on Tipnoo and Find the best players for your eSports Team within hours"
+      />
+      <div className="absolute w-screen">
+        {values.isSubmitting ? (
+          <Submitting />
+        ) : (
+          <div>
+            <Elements stripe={stripePromise}>
+              <ElementsConsumer>
+                {({ elements, stripe }) => (
+                  <AddUpdateOffer
+                    handleChange={handleChange}
+                    handleFileChange={handleFileChange}
+                    handleSubmit={handleSubmit}
+                    mdeHandleChangeDescription={
                         mdeHandleChangeDescription
                       }
-                      mdeHandleChangeRequirements={
+                    mdeHandleChangeRequirements={
                         mdeHandleChangeRequirements
                       }
-                      mdeHandleChangeHowToApply={mdeHandleChangeHowToApply}
-                      errors={values.errors}
-                      closePopup={closePopupImgSize}
-                      imgActualSize={values.imgActualSize}
-                      locationRestricted={'🌏 Worldwide'}
-                      submitBtn={'Publish your Offer - $19'}
-                      invoiceData={true}
-                      stripe={stripe}
-                      elements={elements}
-                    />
-                  )}
-                </ElementsConsumer>
-              </Elements>
-              <PreviewOffer wholeState={values} marginBottom={'mb-32'} />
-            </div>
-          )}
-        </div>
+                    mdeHandleChangeHowToApply={mdeHandleChangeHowToApply}
+                    errors={values.errors}
+                    closePopup={closePopupImgSize}
+                    imgActualSize={values.imgActualSize}
+                    locationRestricted="🌏 Worldwide"
+                    submitBtn="Publish your Offer - $19"
+                    invoiceData
+                    stripe={stripe}
+                    elements={elements}
+                  />
+                )}
+              </ElementsConsumer>
+            </Elements>
+            <PreviewOffer wholeState={values} marginBottom="mb-32" />
+          </div>
+        )}
       </div>
+    </div>
   );
 };
 
