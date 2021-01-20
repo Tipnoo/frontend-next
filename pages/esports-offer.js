@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, ElementsConsumer } from '@stripe/react-stripe-js';
@@ -38,6 +39,7 @@ const initialValues = {
 };
 
 const PostAnOffer = () => {
+  const router = useRouter();
   const [values, setValues] = useState(initialValues);
 
   const handleChange = (e) => {
@@ -80,10 +82,18 @@ const PostAnOffer = () => {
     setValues({ ...values, howToApply: e });
   };
 
+  const closePopupImgSize = () => {
+    setValues({
+      ...values,
+      errors: {
+        ...values.errors,
+        imgFileSize: !values.errors.imgFileSize,
+      },
+    });
+  };
+
   const handleSubmit = async (e, id) => {
     console.log('PaymentMethod Id', id);
-
-    const { history } = this.props;
     const {
       playerPosition,
       esportsTeam,
@@ -99,11 +109,10 @@ const PostAnOffer = () => {
       applyURLorEmail,
       email,
       invoiceNotes,
-    } = this.state;
-    if (positionDescription !== '' && howToApply !== '') {
-      this.setState({
-        isSubmitting: true,
-      });
+    } = values;
+
+    if (values.positionDescription !== '' && values.howToApply !== '') {
+      setValues({ ...values, isSubmitting: true });
       addOffer(
         {
           playerPosition,
@@ -123,48 +132,46 @@ const PostAnOffer = () => {
         },
         teamLogo,
       )
-        .then((res) => {
-          history.push('/success');
+        .then(() => {
+          router.push('/success');
         })
         .catch((error) => {
-          console.log(error);
+          console.log('error adding offer', error);
         });
-      this.setState({
+      setValues({
+        ...values,
         errors: {
-          positionDescription: !positionDescription,
-          howToApply: !howToApply,
+          ...values.errors,
+          positionDescription: !values.errors.positionDescription,
+          howToApply: !values.errors.howToApply,
         },
       });
-    } else if (positionDescription === '' && howToApply === '') {
-      this.setState({
+    } else if (values.positionDescription === '' && values.howToApply === '') {
+      setValues({
+        ...values,
         errors: {
-          positionDescription: !positionDescription,
-          howToApply: !howToApply,
+          ...values.errors,
+          positionDescription: !values.errors.positionDescription,
+          howToApply: !values.errors.howToApply,
         },
       });
-    } else if (positionDescription === '' && howToApply !== '') {
-      this.setState({
+    } else if (values.positionDescription === '' && values.howToApply !== '') {
+      setValues({
+        ...values,
         errors: {
-          positionDescription: !positionDescription,
+          ...values.errors,
+          positionDescription: !values.errors.positionDescription,
         },
       });
-    } else if (positionDescription !== '' && howToApply === '') {
-      this.setState({
+    } else if (values.positionDescription !== '' && values.howToApply === '') {
+      setValues({
+        ...values,
         errors: {
-          howToApply: !howToApply,
+          ...values.errors,
+          howToApply: !values.errors.howToApply,
         },
       });
     }
-  };
-
-  const closePopupImgSize = () => {
-    setValues({
-      ...values,
-      errors: {
-        ...values.errors,
-        imgFileSize: !values.errors.imgFileSize,
-      },
-    });
   };
 
   return (

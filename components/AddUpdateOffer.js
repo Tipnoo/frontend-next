@@ -241,8 +241,8 @@ const AddUpdateOffer = (props) => {
             )}
             <SimpleMDE
               className={`${
-                props.errors.positionDescription &&
-                'border-4 border-orange-500 rounded-md mb-4'
+                props.errors.positionDescription
+                && 'border-4 border-orange-500 rounded-md mb-4'
               } text-left`}
               name="positionDescription"
               id="positionDescription"
@@ -302,8 +302,8 @@ const AddUpdateOffer = (props) => {
             )}
             <SimpleMDE
               className={`${
-                props.errors.howToApply &&
-                'border-4 border-orange-500 rounded-md mb-4'
+                props.errors.howToApply
+                && 'border-4 border-orange-500 rounded-md mb-4'
               } text-left`}
               name="howToApply"
               id="howToApply"
@@ -371,7 +371,11 @@ const AddUpdateOffer = (props) => {
                 </p>
               )}
               <p className="text-left text-xs text-gray-600 mb-4">
-                Secure payment guaranteed by Stripe over HTTPS. <br></br> Card
+                Secure payment guaranteed by Stripe over HTTPS.
+                {' '}
+                <br />
+                {' '}
+                Card
                 is only charged when you press "Post your Offer"
               </p>
             </div>
@@ -396,7 +400,8 @@ const AddUpdateOffer = (props) => {
             </div>
             <div className="bg-purple-50 p-4 rounded border-2 border-purple-200">
               <p>
-                No-time-limit, no-questions-asked, money back guarantee{' '}
+                No-time-limit, no-questions-asked, money back guarantee
+                {' '}
                 <span role="img" aria-label="party">
                   🎉
                 </span>
@@ -415,7 +420,9 @@ const AddUpdateOffer = (props) => {
         >
           {props.errors.positionDescription && props.errors.howToApply && (
             <p className="text-center text-orange-600 mt-4 mx-10 font-bold">
-              <ErrorOutlineIcon /> Please fill out all the required fields above
+              <ErrorOutlineIcon />
+              {' '}
+              Please fill out all the required fields above
               (we have marked them in orange) and then press the button again
             </p>
           )}

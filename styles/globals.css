@@ -1,3 +1,19 @@
 @tailwind base;
+
+@layer base {
+  a {
+    @apply text-blue-600;
+  }
+}
+
 @tailwind components;
+
+.form-label {
+  @apply w-full my-0 mx-auto text-left uppercase font-bold text-sm;
+}
+  
+.form-input {
+  @apply text-sm appearance-none border border-gray-300 rounded my-0 mx-auto w-full py-2 px-3 text-gray-700 leading-tight;
+}
+
 @tailwind utilities;
