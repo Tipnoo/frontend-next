@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { loadStripe } from '@stripe/stripe-js';
-import {
-  Elements, ElementsConsumer, useStripe, useElements,
-} from '@stripe/react-stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import AddUpdateOffer from '../components/AddUpdateOffer';
 import PreviewOffer from '../components/PreviewOffer';
@@ -40,14 +38,8 @@ const initialValues = {
 
 const PostAnOffer = () => {
   const router = useRouter();
-  // const stripe = useStripe();
-  // const Elements = useElements();
-
   const [values, setValues] = useState(initialValues);
   const [stripePromise] = useState(() => loadStripe(`${process.env.STRIPE_PUBLIC_KEY}`));
-
-  // console.log('stripe', stripe);
-  // console.log('stripe elements', elements);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
