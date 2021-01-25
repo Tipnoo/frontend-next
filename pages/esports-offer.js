@@ -22,10 +22,10 @@ const initialValues = {
   primaryGame: 'Game 1',
   extraGame: 'Game 2',
   pro: 'false',
-  positionDescription: 'Write the Description...',
-  positionRequirements: 'Describe the Requirements...',
+  positionDescription: '',
+  positionRequirements: '',
   salary: 'The team has not specified a salary',
-  howToApply: 'Describe how to apply...',
+  howToApply: '',
   applyURLorEmail: '',
   email: '',
   invoiceNotes: '',
@@ -78,14 +78,7 @@ const PostAnOffer = () => {
   };
 
   const mdeHandleChangeDescription = (e) => {
-    setValues({
-      ...values,
-      positionDescription: e,
-      errors: {
-        ...values.errors,
-        positionDescription: !values.errors.positionDescription,
-      },
-    });
+    setValues({ ...values, positionDescription: e });
   };
 
   const mdeHandleChangeRequirements = (e) => {

@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
@@ -109,25 +108,36 @@ const PreviewOffer = (props) => {
           <div className="text-sm">
             {needsToBeProPlayer(props.wholeState.pro)}
             <p className="text-2xl font-bold mb-2">Position Description</p>
-            <Markdown
-              options={{
-                forceBlock: true,
-                overrides: overridesOptions,
-              }}
-              className="text-gray-700"
-            >
-              {props.wholeState.positionDescription}
-            </Markdown>
+
+            {(props.wholeState.positionDescription === '')
+              ? <p className="text-gray-700">Write a description...</p>
+              : (
+                <Markdown
+                  options={{
+                    forceBlock: true,
+                    overrides: overridesOptions,
+                  }}
+                  className="text-gray-700"
+                >
+                  {props.wholeState.positionDescription}
+                </Markdown>
+              )}
+
             <p className="text-2xl font-bold my-2">Position Requirements</p>
-            <Markdown
-              options={{
-                forceBlock: true,
-                overrides: overridesOptions,
-              }}
-              className="text-gray-700"
-            >
-              {props.wholeState.positionRequirements}
-            </Markdown>
+            {(props.wholeState.positionRequirements === '')
+              ? <p className="text-gray-700">Describe the requirements...</p>
+              : (
+                <Markdown
+                  options={{
+                    forceBlock: true,
+                    overrides: overridesOptions,
+                  }}
+                  className="text-gray-700"
+                >
+                  {props.wholeState.positionRequirements}
+                </Markdown>
+              )}
+
             <p className="text-2xl font-bold my-2">Location</p>
             <p className="text-gray-700">
               {props.wholeState.locationRestricted}
@@ -140,15 +150,19 @@ const PreviewOffer = (props) => {
               <p className="text-xl font-bold my-2 border-t border-gray-400 pt-4">
                 How to Apply?
               </p>
-              <Markdown
-                options={{
-                  forceBlock: true,
-                  overrides: overridesOptions,
-                }}
-                className="text-gray-700"
-              >
-                {props.wholeState.howToApply}
-              </Markdown>
+              {(props.wholeState.howToApply === '')
+                ? <p className="text-gray-700">Describe how to apply...</p>
+                : (
+                  <Markdown
+                    options={{
+                      forceBlock: true,
+                      overrides: overridesOptions,
+                    }}
+                    className="text-gray-700"
+                  >
+                    {props.wholeState.howToApply}
+                  </Markdown>
+                )}
               <button type="button" className="cursor-not-allowed border border-dashed border-gray-600 text-gray-500 font-bold py-4 px-8 rounded my-4">
                 Apply to this Position
               </button>
