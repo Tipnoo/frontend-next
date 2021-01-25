@@ -2,13 +2,22 @@ import { useState } from 'react';
 
 import SimpleMDE from 'react-simplemde-editor';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import { CardElement } from '@stripe/react-stripe-js';
+import {
+  CardElement, useStripe,
+  useElements,
+} from '@stripe/react-stripe-js';
 import PopupImageSize from './popups/Popup-imageSize';
 
 import 'easymde/dist/easymde.min.css';
 
 const AddUpdateOffer = (props) => {
   const [stripeError, setStripeError] = useState(null);
+  const [succeeded, setSucceeded] = useState(false);
+  const [processing, setProcessing] = useState('');
+  const [disabled, setDisabled] = useState(true);
+  const [clientSecret, setClientSecret] = useState('');
+  const stripe = useStripe();
+  const elements = useElements();
 
   const change = (e) => {
     props.handleChange(e);
@@ -16,25 +25,22 @@ const AddUpdateOffer = (props) => {
 
   const submit = async (e) => {
     e.preventDefault();
-    console.log('stripe', props.stripe);
-    console.log('elements', props.elements);
-    // console.log('props', props);
 
-    if (!props.stripe && !props.elements && props.updating) {
-      console.log('stripe is not loaded because we are updating the offer');
-      props.handleSubmit(e);
-      return;
-    }
-    if (!props.stripe || !props.elements) {
-      console.log('stripe is not loaded yet...');
-      return;
-    }
+    // if (!props.stripe && !props.elements && props.updating) {
+    //   console.log('stripe is not loaded because we are updating the offer');
+    //   props.handleSubmit(e);
+    //   return;
+    // }
+    // if (!props.stripe || !props.elements) {
+    //   console.log('stripe is not loaded yet...');
+    //   return;
+    // }
 
     // Get a reference to a mounted CardElement below in the form.
-    const cardElement = props.elements.getElement(CardElement);
+    const cardElement = elements.getElement(CardElement);
 
     // Create a Payment Method
-    const { error, paymentMethod } = await props.stripe.createPaymentMethod({
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
     });
@@ -45,7 +51,7 @@ const AddUpdateOffer = (props) => {
     }
 
     // Create a Stripe Token
-    const result = await props.stripe.createToken(cardElement);
+    const result = await stripe.createToken(cardElement);
     if (result.error) {
       console.log('error message', result.error.message);
       setStripeError(result.error.message);
@@ -86,6 +92,8 @@ const AddUpdateOffer = (props) => {
       },
     },
   };
+
+  const { errors } = props;
 
   return (
     <div>
@@ -233,16 +241,16 @@ const AddUpdateOffer = (props) => {
             <label className="form-label" htmlFor="positionDescription">
               Position Description*
             </label>
-            {props.errors.positionDescription && (
-              <p className="text-left text-sm text-orange-600 mb-2 font-bold">
+            {errors.positionDescription && (
+              <p className="text-left text-sm text-yellow-600 mb-2 font-bold">
                 Please fill out this field with a detailed description of what
                 you're looking for.
               </p>
             )}
             <SimpleMDE
               className={`${
-                props.errors.positionDescription
-                && 'border-4 border-orange-500 rounded-md mb-4'
+                errors.positionDescription
+                && 'border-4 border-yellow-500 rounded-md mb-4'
               } text-left`}
               name="positionDescription"
               id="positionDescription"
@@ -294,16 +302,16 @@ const AddUpdateOffer = (props) => {
             <label className="form-label" htmlFor="howToApply">
               How to Apply?*
             </label>
-            {props.errors.howToApply && (
-              <p className="text-left text-sm text-orange-600 mb-2 font-bold">
+            {errors.howToApply && (
+              <p className="text-left text-sm text-yellow-600 mb-2 font-bold">
                 Please fill out this field explaining how someone should apply
                 to your offer.
               </p>
             )}
             <SimpleMDE
               className={`${
-                props.errors.howToApply
-                && 'border-4 border-orange-500 rounded-md mb-4'
+                errors.howToApply
+                && 'border-4 border-yellow-500 rounded-md mb-4'
               } text-left`}
               name="howToApply"
               id="howToApply"
@@ -366,7 +374,7 @@ const AddUpdateOffer = (props) => {
               </label>
               <CardElement options={CARD_OPTIONS} />
               {stripeError && (
-                <p className="text-left text-sm text-orange-600 mb-2 font-bold">
+                <p className="text-left text-sm text-yellow-600 mb-2 font-bold">
                   {stripeError}
                 </p>
               )}
@@ -418,8 +426,8 @@ const AddUpdateOffer = (props) => {
           id="submitBtn"
           className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200"
         >
-          {props.errors.positionDescription && props.errors.howToApply && (
-            <p className="text-center text-orange-600 mt-4 mx-10 font-bold">
+          {((errors.positionDescription) || (errors.howToApply) || (stripeError)) && (
+            <p className="text-center text-yellow-600 mt-4 mx-10 font-bold">
               <ErrorOutlineIcon />
               {' '}
               Please fill out all the required fields above
@@ -427,7 +435,7 @@ const AddUpdateOffer = (props) => {
             </p>
           )}
           <input
-            className="bg-red-600 text-xl hover:bg-transparent text-white hover:text-red-600 border-4 hover:border-red-600 border-red-600 font-bold py-2 px-6 rounded w-4/5 my-4 mx-auto cursor-pointer"
+            className="bg-red-600 text-xl text-white border-4 hover:border-red-600 border-red-600 font-bold py-2 px-6 rounded w-4/5 my-4 mx-auto cursor-pointer"
             type="submit"
             value={props.submitBtn}
           />

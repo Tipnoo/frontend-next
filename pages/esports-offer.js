@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements, ElementsConsumer } from '@stripe/react-stripe-js';
+import {
+  Elements, ElementsConsumer, useStripe, useElements,
+} from '@stripe/react-stripe-js';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import AddUpdateOffer from '../components/AddUpdateOffer';
 import PreviewOffer from '../components/PreviewOffer';
 import Submitting from '../components/messages/Submitting';
 
 import { addOffer } from '../services/apiClient/offers';
-
-const stripePromise = loadStripe(`${process.env.STRIPE_PUBLIC_KEY}`);
 
 const initialValues = {
   playerPosition: 'Player Position',
@@ -40,7 +40,14 @@ const initialValues = {
 
 const PostAnOffer = () => {
   const router = useRouter();
+  // const stripe = useStripe();
+  // const Elements = useElements();
+
   const [values, setValues] = useState(initialValues);
+  const [stripePromise] = useState(() => loadStripe(`${process.env.STRIPE_PUBLIC_KEY}`));
+
+  // console.log('stripe', stripe);
+  // console.log('stripe elements', elements);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -71,7 +78,14 @@ const PostAnOffer = () => {
   };
 
   const mdeHandleChangeDescription = (e) => {
-    setValues({ ...values, positionDescription: e });
+    setValues({
+      ...values,
+      positionDescription: e,
+      errors: {
+        ...values.errors,
+        positionDescription: !values.errors.positionDescription,
+      },
+    });
   };
 
   const mdeHandleChangeRequirements = (e) => {
@@ -185,30 +199,24 @@ const PostAnOffer = () => {
         ) : (
           <div>
             <Elements stripe={stripePromise}>
-              <ElementsConsumer>
-                {({ elements, stripe }) => (
-                  <AddUpdateOffer
-                    handleChange={handleChange}
-                    handleFileChange={handleFileChange}
-                    handleSubmit={handleSubmit}
-                    mdeHandleChangeDescription={
+              <AddUpdateOffer
+                handleChange={handleChange}
+                handleFileChange={handleFileChange}
+                handleSubmit={handleSubmit}
+                mdeHandleChangeDescription={
                         mdeHandleChangeDescription
                       }
-                    mdeHandleChangeRequirements={
+                mdeHandleChangeRequirements={
                         mdeHandleChangeRequirements
                       }
-                    mdeHandleChangeHowToApply={mdeHandleChangeHowToApply}
-                    errors={values.errors}
-                    closePopup={closePopupImgSize}
-                    imgActualSize={values.imgActualSize}
-                    locationRestricted="🌏 Worldwide"
-                    submitBtn="Publish your Offer - $19"
-                    invoiceData
-                    stripe={stripe}
-                    elements={elements}
-                  />
-                )}
-              </ElementsConsumer>
+                mdeHandleChangeHowToApply={mdeHandleChangeHowToApply}
+                errors={values.errors}
+                closePopup={closePopupImgSize}
+                imgActualSize={values.imgActualSize}
+                locationRestricted="🌏 Worldwide"
+                submitBtn="Publish your Offer - $19"
+                invoiceData
+              />
             </Elements>
             <PreviewOffer wholeState={values} marginBottom="mb-32" />
           </div>
