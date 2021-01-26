@@ -345,10 +345,18 @@ const AddUpdateOffer = (props) => {
         {props.invoiceData && (
           <fieldset className="border border-gray-300 rounded p-6 bg-gray-100 shadow-md mt-2">
             <legend className="font-extrabold text-center uppercase p-2">
-              Invoice Data
+              Checkout
             </legend>
             <div className="flex flex-col">
-              <label className="form-label" htmlFor="email">
+              <label className="form-label" htmlFor="paymentmethod">
+                Choose your Payment Method*
+              </label>
+              <select id="paymentmethod" name="paymentmethod" className="mb-4 w-full text-sm border border-gray-300 rounded my-0 mx-auto py-2 px-3 text-gray-700 leading-tight bg-white">
+                <option value="stripe">💳  Credit Card</option>
+                <option value="paypal" disabled>🅿️ Paypal (coming soon!)</option>
+                <option value="bitcoin" disabled>₿ Bitcoin (coming soon!)</option>
+              </select>
+              {/* <label className="form-label" htmlFor="email">
                 Company Email*
               </label>
               <p className="w-full my-0 mx-auto text-left text-sm">
@@ -404,7 +412,7 @@ const AddUpdateOffer = (props) => {
                 Stripe receipt such as a Purchase Order number or any other
                 internal notes you need for reference. We CANNOT add or edit
                 this later for you. Make sure it's right.
-              </p>
+              </p> */}
             </div>
             <div className="bg-purple-50 p-4 rounded border-2 border-purple-200">
               <p>

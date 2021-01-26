@@ -39,6 +39,7 @@
         "react/react-in-jsx-scope": "off",
         "jsx-a11y/label-has-associated-control": "off",
         "jsx-a11y/no-onchange": "off",
+        "jsx-a11y/accessible-emoji": "off",
         "react-hooks/exhaustive-deps": "warn",
         "react/prop-types": "off",
         "max-len": "off",
