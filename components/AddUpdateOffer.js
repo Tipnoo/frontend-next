@@ -159,7 +159,7 @@ const AddUpdateOffer = (props) => {
             </p>
           </div>
         </fieldset>
-        {props.errors.imgFileSize ? (
+        {errors.imgFileSize ? (
           <PopupImageSize
             toggle={closePopup}
             imgActualSize={props.imgActualSize}

@@ -67,6 +67,8 @@ const PreviewOffer = (props) => {
     },
   };
 
+  const { wholeState } = props;
+
   return (
     <div className={`${props.marginBottom} w-11/12 mx-auto mt-2`}>
       <fieldset className="border border-gray-300 rounded pb-6 pt-4 bg-gray-100 shadow-md">
@@ -84,21 +86,29 @@ const PreviewOffer = (props) => {
         <div className="w-11/12 border border-gray-300 rounded-sm p-4 flex mt-4 mx-auto bg-white">
           <img
             className="h-16 w-16 border border-gray-300 rounded m-2"
-            src={props.wholeState.file}
+            src={wholeState.file}
             alt="Your Logo"
           />
           <div className="w-4/5 ml-2 text-left">
             <h4 className="font-extrabold text-lg">
-              {props.wholeState.playerPosition}
+              {(wholeState.playerPosition === '')
+                ? 'Player Position'
+                : (<p>{wholeState.playerPosition}</p>)}
             </h4>
             <h4 className="font-light text-sm mb-1">
-              {props.wholeState.esportsTeam}
+              {(wholeState.esportsTeam === '')
+                ? 'Your Esports Team'
+                : (<p>{wholeState.esportsTeam}</p>)}
             </h4>
             <h4 className="inline-block text-super-xs uppercase border p-1 rounded border-black font-bold mr-2">
-              {props.wholeState.primaryGame}
+              {(wholeState.primaryGame === '')
+                ? 'Game 1'
+                : (<p>{wholeState.primaryGame}</p>)}
             </h4>
             <h4 className="inline-block text-super-xs uppercase font-bold border p-1 rounded border-black">
-              {props.wholeState.extraGame}
+              {(wholeState.extraGame === '')
+                ? 'Game 2'
+                : (<p>{wholeState.extraGame}</p>)}
             </h4>
           </div>
           <h4 className="w-1/5 text-super-xs py-8 text-center">1 min ago</h4>
@@ -106,10 +116,10 @@ const PreviewOffer = (props) => {
 
         <div className="p-8 bg-yellow-100 text-left w-11/12 mx-auto border border-gray-300 rounded-b-sm">
           <div className="text-sm">
-            {needsToBeProPlayer(props.wholeState.pro)}
+            {needsToBeProPlayer(wholeState.pro)}
             <p className="text-2xl font-bold mb-2">Position Description</p>
 
-            {(props.wholeState.positionDescription === '')
+            {(wholeState.positionDescription === '')
               ? <p className="text-gray-700">Write a description...</p>
               : (
                 <Markdown
@@ -119,12 +129,12 @@ const PreviewOffer = (props) => {
                   }}
                   className="text-gray-700"
                 >
-                  {props.wholeState.positionDescription}
+                  {wholeState.positionDescription}
                 </Markdown>
               )}
 
             <p className="text-2xl font-bold my-2">Position Requirements</p>
-            {(props.wholeState.positionRequirements === '')
+            {(wholeState.positionRequirements === '')
               ? <p className="text-gray-700">Describe the requirements...</p>
               : (
                 <Markdown
@@ -134,23 +144,23 @@ const PreviewOffer = (props) => {
                   }}
                   className="text-gray-700"
                 >
-                  {props.wholeState.positionRequirements}
+                  {wholeState.positionRequirements}
                 </Markdown>
               )}
 
             <p className="text-2xl font-bold my-2">Location</p>
             <p className="text-gray-700">
-              {props.wholeState.locationRestricted}
+              {wholeState.locationRestricted}
             </p>
             <p className="text-2xl font-bold my-2">Annual Salary</p>
             <p className="text-gray-700 mb-4">
-              {props.wholeState.salary}
+              {wholeState.salary}
             </p>
             <div className="text-center">
               <p className="text-xl font-bold my-2 border-t border-gray-400 pt-4">
                 How to Apply?
               </p>
-              {(props.wholeState.howToApply === '')
+              {(wholeState.howToApply === '')
                 ? <p className="text-gray-700">Describe how to apply...</p>
                 : (
                   <Markdown
@@ -160,7 +170,7 @@ const PreviewOffer = (props) => {
                     }}
                     className="text-gray-700"
                   >
-                    {props.wholeState.howToApply}
+                    {wholeState.howToApply}
                   </Markdown>
                 )}
               <button type="button" className="cursor-not-allowed border border-dashed border-gray-600 text-gray-500 font-bold py-4 px-8 rounded my-4">

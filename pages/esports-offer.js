@@ -11,14 +11,14 @@ import Submitting from '../components/messages/Submitting';
 import { addOffer } from '../services/apiClient/offers';
 
 const initialValues = {
-  playerPosition: 'Player Position',
-  esportsTeam: 'Your Esports Team',
+  playerPosition: '',
+  esportsTeam: '',
   teamLogo: null,
   file:
     'https://res.cloudinary.com/tipnoo/image/upload/v1600871255/tipnoo-team-logos/file_v9ntnp.png',
   locationRestricted: 'Worldwide',
-  primaryGame: 'Game 1',
-  extraGame: 'Game 2',
+  primaryGame: '',
+  extraGame: '',
   pro: 'false',
   positionDescription: '',
   positionRequirements: '',
