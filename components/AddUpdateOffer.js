@@ -351,70 +351,30 @@ const AddUpdateOffer = (props) => {
               <label className="form-label" htmlFor="paymentmethod">
                 Choose your Payment Method*
               </label>
-              <select id="paymentmethod" name="paymentmethod" className="mb-4 w-full text-sm border border-gray-300 rounded my-0 mx-auto py-2 px-3 text-gray-700 leading-tight bg-white">
-                <option value="stripe">💳  Credit Card</option>
-                <option value="paypal" disabled>🅿️ Paypal (coming soon!)</option>
-                <option value="bitcoin" disabled>₿ Bitcoin (coming soon!)</option>
-              </select>
-              {/* <label className="form-label" htmlFor="email">
-                Company Email*
-              </label>
-              <p className="w-full my-0 mx-auto text-left text-sm">
-                (Stays Private, for Receipt + Edit Link)
-              </p>
-              <input
-                className="form-input"
-                type="email"
-                name="email"
-                id="email"
-                onChange={change}
-                required
-              />
+              <div className="flex mt-2 mb-4">
+                <label className="flex flex-col flex-1 w-1/3 h-28 items-center bg-blue-100 rounded border-4 border-blue-300">
+                  <img src="../images/credit-card-icon.png" alt="creditcard" className="h-16 w-16" />
+                  <input type="radio" name="paymentmethod" value="creditcard" />
+                  <span className="ml-2">Credit Card</span>
+                </label>
+
+                <label className="flex flex-col flex-1 w-1/3 h-28 items-center bg-gray-200 rounded border-2 border-gray-300">
+                  <img src="../images/paypal-icon.png" alt="creditcard" className="h-11 w-11 my-2.5" />
+                  <input type="radio" name="paymentmethod" value="paypal" disabled />
+                  <span className="ml-2">Paypal</span>
+                </label>
+
+                <label className="flex flex-col flex-1 w-1/3 h-28 items-center bg-gray-200 rounded border-2 border-gray-300">
+                  <img src="../images/bitcoin-icon.png" alt="creditcard" className="h-11 w-14 my-2.5" />
+                  <input type="radio" name="paymentmethod" value="bitcoin" disabled />
+                  <span className="ml-2">Bitcoin</span>
+                </label>
+              </div>
               <p className="text-left text-xs text-gray-600 mb-4">
-                Make sure this email is accessible by you! We use this to send
-                the invoice and edit link. We can not and do not manually resend
-                it!
+                We are currently working on adding Paypal and cryptocurrency checkouts! :)
               </p>
             </div>
-            <div className="flex flex-col">
-              <label className="form-label" htmlFor="hashedCreditCardNumber">
-                Company Card*
-              </label>
-              <CardElement options={CARD_OPTIONS} />
-              {stripeError && (
-                <p className="text-left text-sm text-yellow-600 mb-2 font-bold">
-                  {stripeError}
-                </p>
-              )}
-              <p className="text-left text-xs text-gray-600 mb-4">
-                Secure payment guaranteed by Stripe over HTTPS.
-                {' '}
-                <br />
-                {' '}
-                Card
-                is only charged when you press "Post your Offer"
-              </p>
-            </div>
-            <div className="flex flex-col">
-              <label className="form-label" htmlFor="invoiceAddress">
-                Invoice Notes
-              </label>
-              <textarea
-                className="text-sm appearance-none border border-gray-300 rounded my-0 mx-auto w-full pt-2 pb-10 px-3 text-gray-700 leading-tight"
-                type="text"
-                name="invoiceNotes"
-                id="invoiceNotes"
-                placeholder="e.g. PO number 1234"
-                onChange={change}
-              />
-              <p className="text-left text-xs text-gray-600 mb-4">
-                Not required. Add notes here that you'd like to see on the
-                Stripe receipt such as a Purchase Order number or any other
-                internal notes you need for reference. We CANNOT add or edit
-                this later for you. Make sure it's right.
-              </p> */}
-            </div>
-            <div className="bg-purple-50 p-4 rounded border-2 border-purple-200">
+            <div className="bg-yellow-50 p-4 rounded border-2 border-yellow-200">
               <p>
                 No-time-limit, no-questions-asked, money back guarantee
                 {' '}
