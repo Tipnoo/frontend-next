@@ -199,7 +199,7 @@ const PostAnOffer = () => {
                 closePopup={closePopupImgSize}
                 imgActualSize={values.imgActualSize}
                 locationRestricted="🌏 Worldwide"
-                submitBtn="Publish your Offer - $19"
+                submitBtn="Proceed to Checkout - $19"
                 invoiceData
               />
             </Elements>

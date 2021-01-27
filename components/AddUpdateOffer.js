@@ -84,15 +84,6 @@ const AddUpdateOffer = (props) => {
     props.closePopup();
   };
 
-  const CARD_OPTIONS = {
-    style: {
-      base: {
-        fontSize: '1.2rem',
-        color: '#4a5568',
-      },
-    },
-  };
-
   const { errors } = props;
 
   return (
@@ -354,7 +345,7 @@ const AddUpdateOffer = (props) => {
               <div className="flex mt-2 mb-4">
                 <label className="flex flex-col flex-1 w-1/3 h-28 items-center bg-blue-100 rounded border-4 border-blue-300">
                   <img src="../images/credit-card-icon.png" alt="creditcard" className="h-16 w-16" />
-                  <input type="radio" name="paymentmethod" value="creditcard" />
+                  <input type="radio" name="paymentmethod" value="creditcard" checked readOnly />
                   <span className="ml-2">Credit Card</span>
                 </label>
 
