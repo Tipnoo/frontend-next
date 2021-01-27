@@ -394,7 +394,7 @@ const AddUpdateOffer = (props) => {
             </p>
           )}
           <input
-            className="bg-red-600 text-xl text-white border-4 hover:border-red-600 border-red-600 font-bold py-2 px-6 rounded w-4/5 my-4 mx-auto cursor-pointer"
+            className="bg-red-600 text-xl text-white border-b-4 hover:border-red-700 border-red-800 font-bold py-3 px-6 rounded w-4/5 my-4 mx-auto cursor-pointer"
             type="submit"
             value={props.submitBtn}
           />
