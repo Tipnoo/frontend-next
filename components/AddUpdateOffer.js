@@ -339,6 +339,27 @@ const AddUpdateOffer = (props) => {
               Checkout
             </legend>
             <div className="flex flex-col">
+              <label className="form-label" htmlFor="email">
+                Your Company Email*
+              </label>
+              <p className="w-full my-0 mx-auto text-left text-sm">
+                (Stays Private, for Receipt + Edit Link)
+              </p>
+              <input
+                className="form-input"
+                type="email"
+                name="email"
+                id="email"
+                onChange={change}
+                required
+              />
+              <p className="text-left text-xs text-gray-600 mb-4">
+                Make sure this email is accessible by you! We use this to send
+                the invoice and edit link. We can not and do not manually resend
+                it!
+              </p>
+            </div>
+            <div className="flex flex-col">
               <label className="form-label" htmlFor="paymentmethod">
                 Choose your Payment Method*
               </label>
