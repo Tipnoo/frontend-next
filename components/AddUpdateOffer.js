@@ -2,22 +2,14 @@ import { useState } from 'react';
 
 import SimpleMDE from 'react-simplemde-editor';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import {
-  CardElement, useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
+import { useStripe } from '@stripe/react-stripe-js';
 import PopupImageSize from './popups/Popup-imageSize';
 
 import 'easymde/dist/easymde.min.css';
 
 const AddUpdateOffer = (props) => {
   const [stripeError, setStripeError] = useState(null);
-  const [succeeded, setSucceeded] = useState(false);
-  const [processing, setProcessing] = useState('');
-  const [disabled, setDisabled] = useState(true);
-  const [clientSecret, setClientSecret] = useState('');
   const stripe = useStripe();
-  const elements = useElements();
 
   const change = (e) => {
     props.handleChange(e);
@@ -25,35 +17,7 @@ const AddUpdateOffer = (props) => {
 
   const submit = async (e) => {
     e.preventDefault();
-    // Get a reference to a mounted CardElement below in the form.
-    // const cardElement = elements.getElement(CardElement);
-
-    // // Create a Payment Method
-    // const { error, paymentMethod } = await stripe.createPaymentMethod({
-    //   type: 'card',
-    //   card: cardElement,
-    // });
-    // if (error) {
-    //   console.log('[error]', error);
-    // } else {
-    //   console.log('[PaymentMethod]', paymentMethod);
-    // }
-
-    // // Create a Stripe Token
-    // const result = await stripe.createToken(cardElement);
-    // if (result.error) {
-    //   console.log('error message', result.error.message);
-    //   setStripeError(result.error.message);
-    // } else {
-    //   console.log('result token', result.token);
-    //   // pass the payment method ID to Backend
-    //   const { id } = paymentMethod;
-    //   props.handleSubmit(e, id);
-    // }
-    // const stripe = Stripe(`${process.env.STRIPE_PUBLIC_KEY}`);
-    // const checkoutButton = document.getElementById('checkout-button');
-    // checkoutButton.addEventListener('click', () => {
-    fetch('http://localhost:3001/esports-offer/create-checkout-session', {
+    fetch(`${process.env.BACKEND_URI}/esports-offer/create-checkout-session`, {
       method: 'POST',
     })
       .then((response) => response.json())
@@ -69,7 +33,6 @@ const AddUpdateOffer = (props) => {
       .catch((error) => {
         console.error('Error:', error);
       });
-    // });
   };
 
   const fileSelectedHandler = (e) => {
@@ -93,13 +56,13 @@ const AddUpdateOffer = (props) => {
     props.closePopup();
   };
 
-  const { errors } = props;
+  const { errors, handleSubmit } = props;
 
   return (
     <div>
       <form
         className="w-11/12 mt-6 mx-auto text-center"
-        onSubmit={submit}
+        onSubmit={handleSubmit}
         id="formElem"
       >
         <fieldset className="border border-gray-300 rounded p-6 bg-gray-100 shadow-md">

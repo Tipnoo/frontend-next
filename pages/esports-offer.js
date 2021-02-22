@@ -39,7 +39,7 @@ const initialValues = {
 const PostAnOffer = () => {
   const router = useRouter();
   const [values, setValues] = useState(initialValues);
-  const [stripePromise] = useState(() => loadStripe(`${process.env.STRIPE_PUBLIC_KEY}`));
+  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,60 +91,31 @@ const PostAnOffer = () => {
     });
   };
 
-  const handleSubmit = async (e, id) => {
-    console.log('PaymentMethod Id', id);
-    const {
-      playerPosition,
-      esportsTeam,
-      teamLogo,
-      locationRestricted,
-      primaryGame,
-      extraGame,
-      pro,
-      positionDescription,
-      positionRequirements,
-      salary,
-      howToApply,
-      applyURLorEmail,
-      email,
-      invoiceNotes,
-    } = values;
-
+  const handleSubmit = async e => {
+    e.preventDefault();
     if (values.positionDescription !== '' && values.howToApply !== '') {
       setValues({ ...values, isSubmitting: true });
-      addOffer(
-        {
-          playerPosition,
-          esportsTeam,
-          locationRestricted,
-          primaryGame,
-          extraGame,
-          pro,
-          positionDescription,
-          positionRequirements,
-          salary,
-          howToApply,
-          applyURLorEmail,
-          email,
-          invoiceNotes,
-          id,
-        },
-        teamLogo,
-      )
-        .then(() => {
-          router.push('/success');
-        })
-        .catch((error) => {
-          console.log('error adding offer', error);
+      try {
+        const {data: {id}} = await addOffer(values);
+        
+        const stripe = await stripePromise;
+        console.log('got here 11==>>', stripe);
+        const {error} = await stripe.redirectToCheckout({
+          sessionId: id
         });
-      setValues({
-        ...values,
-        errors: {
-          ...values.errors,
-          positionDescription: !values.errors.positionDescription,
-          howToApply: !values.errors.howToApply,
-        },
-      });
+        console.log('got here 22==>>', error);
+        //router.push('/success');
+        /*setValues({
+          ...values,
+          errors: {
+            ...values.errors,
+            positionDescription: !values.errors.positionDescription,
+            howToApply: !values.errors.howToApply,
+          },
+        });*/
+      } catch (err) {
+        console.log('error adding offer', err);
+      }
     } else if (values.positionDescription === '' && values.howToApply === '') {
       setValues({
         ...values,

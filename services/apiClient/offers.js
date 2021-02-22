@@ -4,7 +4,7 @@ export const getOffers = () => apiClient.get('/');
 
 export const getOffer = (id) => apiClient.get(`/esports-offer/${id}`);
 
-export const addOffer = (body, teamLogo) => {
+export const addOffer = ({ teamLogo, ...body }) => {
   const config = { headers: { 'Content-Type': 'multipart/form-data' } };
   const formData = new FormData();
   // append the whole body to formData (note that you can't console log it!)
@@ -13,7 +13,7 @@ export const addOffer = (body, teamLogo) => {
   });
   // then append the image
   formData.append('teamLogo', teamLogo);
-  return apiClient.post('/esports-offer/', formData, config);
+  return apiClient.post('/esports-offer/create-checkout-session', formData, config);
 };
 
 export const editOffer = (id, body, teamLogo) => {
