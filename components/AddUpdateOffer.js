@@ -25,42 +25,51 @@ const AddUpdateOffer = (props) => {
 
   const submit = async (e) => {
     e.preventDefault();
-
-    // if (!props.stripe && !props.elements && props.updating) {
-    //   console.log('stripe is not loaded because we are updating the offer');
-    //   props.handleSubmit(e);
-    //   return;
-    // }
-    // if (!props.stripe || !props.elements) {
-    //   console.log('stripe is not loaded yet...');
-    //   return;
-    // }
-
     // Get a reference to a mounted CardElement below in the form.
-    const cardElement = elements.getElement(CardElement);
+    // const cardElement = elements.getElement(CardElement);
 
-    // Create a Payment Method
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: cardElement,
-    });
-    if (error) {
-      console.log('[error]', error);
-    } else {
-      console.log('[PaymentMethod]', paymentMethod);
-    }
+    // // Create a Payment Method
+    // const { error, paymentMethod } = await stripe.createPaymentMethod({
+    //   type: 'card',
+    //   card: cardElement,
+    // });
+    // if (error) {
+    //   console.log('[error]', error);
+    // } else {
+    //   console.log('[PaymentMethod]', paymentMethod);
+    // }
 
-    // Create a Stripe Token
-    const result = await stripe.createToken(cardElement);
-    if (result.error) {
-      console.log('error message', result.error.message);
-      setStripeError(result.error.message);
-    } else {
-      console.log('result token', result.token);
-      // pass the payment method ID to Backend
-      const { id } = paymentMethod;
-      props.handleSubmit(e, id);
-    }
+    // // Create a Stripe Token
+    // const result = await stripe.createToken(cardElement);
+    // if (result.error) {
+    //   console.log('error message', result.error.message);
+    //   setStripeError(result.error.message);
+    // } else {
+    //   console.log('result token', result.token);
+    //   // pass the payment method ID to Backend
+    //   const { id } = paymentMethod;
+    //   props.handleSubmit(e, id);
+    // }
+    // const stripe = Stripe(`${process.env.STRIPE_PUBLIC_KEY}`);
+    // const checkoutButton = document.getElementById('checkout-button');
+    // checkoutButton.addEventListener('click', () => {
+    fetch('http://localhost:3001/esports-offer/create-checkout-session', {
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then((session) => stripe.redirectToCheckout({ sessionId: session.id }))
+      .then((result) => {
+        // If redirectToCheckout fails due to a browser or network
+        // error, you should display the localized error message to your
+        // customer using error.message.
+        if (result.error) {
+          console.log(result.error.message);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    // });
   };
 
   const fileSelectedHandler = (e) => {
