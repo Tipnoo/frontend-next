@@ -37,9 +37,8 @@ const initialValues = {
 };
 
 const PostAnOffer = () => {
-  const router = useRouter();
   const [values, setValues] = useState(initialValues);
-  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+  const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.STRIPE_PUBLIC_KEY));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -91,28 +90,19 @@ const PostAnOffer = () => {
     });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (values.positionDescription !== '' && values.howToApply !== '') {
       setValues({ ...values, isSubmitting: true });
       try {
-        const {data: {id}} = await addOffer(values);
-        
+        const { data: { id } } = await addOffer(values);
+
         const stripe = await stripePromise;
         console.log('got here 11==>>', stripe);
-        const {error} = await stripe.redirectToCheckout({
-          sessionId: id
+        const { error } = await stripe.redirectToCheckout({
+          sessionId: id,
         });
         console.log('got here 22==>>', error);
-        //router.push('/success');
-        /*setValues({
-          ...values,
-          errors: {
-            ...values.errors,
-            positionDescription: !values.errors.positionDescription,
-            howToApply: !values.errors.howToApply,
-          },
-        });*/
       } catch (err) {
         console.log('error adding offer', err);
       }
@@ -121,8 +111,8 @@ const PostAnOffer = () => {
         ...values,
         errors: {
           ...values.errors,
-          positionDescription: !values.errors.positionDescription,
-          howToApply: !values.errors.howToApply,
+          positionDescription: true,
+          howToApply: true,
         },
       });
     } else if (values.positionDescription === '' && values.howToApply !== '') {
@@ -130,7 +120,8 @@ const PostAnOffer = () => {
         ...values,
         errors: {
           ...values.errors,
-          positionDescription: !values.errors.positionDescription,
+          positionDescription: true,
+          howToApply: false,
         },
       });
     } else if (values.positionDescription !== '' && values.howToApply === '') {
@@ -138,7 +129,8 @@ const PostAnOffer = () => {
         ...values,
         errors: {
           ...values.errors,
-          howToApply: !values.errors.howToApply,
+          positionDescription: false,
+          howToApply: true,
         },
       });
     }
