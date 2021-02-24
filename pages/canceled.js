@@ -10,7 +10,7 @@ const CancelOffer = () => (
     <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
       <div className="w-5/6 mx-auto mt-4">
         <p className="text-lg">
-          <b>If you want, you can publish your offer here:</b>
+          <b>If you want, you can publish a new offer here:</b>
         </p>
         <ButtonPublishOffer />
       </div>

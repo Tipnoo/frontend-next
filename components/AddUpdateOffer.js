@@ -1,38 +1,12 @@
-import { useState } from 'react';
-
 import SimpleMDE from 'react-simplemde-editor';
 import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import { useStripe } from '@stripe/react-stripe-js';
 import PopupImageSize from './popups/Popup-imageSize';
 
 import 'easymde/dist/easymde.min.css';
 
 const AddUpdateOffer = (props) => {
-  const [stripeError, setStripeError] = useState(null);
-  const stripe = useStripe();
-
   const change = (e) => {
     props.handleChange(e);
-  };
-
-  const submit = async (e) => {
-    e.preventDefault();
-    fetch(`${process.env.BACKEND_URI}/esports-offer/create-checkout-session`, {
-      method: 'POST',
-    })
-      .then((response) => response.json())
-      .then((session) => stripe.redirectToCheckout({ sessionId: session.id }))
-      .then((result) => {
-        // If redirectToCheckout fails due to a browser or network
-        // error, you should display the localized error message to your
-        // customer using error.message.
-        if (result.error) {
-          console.log(result.error.message);
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
   };
 
   const fileSelectedHandler = (e) => {
@@ -378,7 +352,7 @@ const AddUpdateOffer = (props) => {
           id="submitBtn"
           className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200"
         >
-          {((errors.positionDescription) || (errors.howToApply) || (stripeError)) && (
+          {((errors.positionDescription) || (errors.howToApply)) && (
             <p className="text-center text-yellow-600 mt-4 mx-10 font-bold">
               <ErrorOutlineIcon />
               {' '}
