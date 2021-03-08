@@ -7,7 +7,7 @@ import AddUpdateOffer from '../components/AddUpdateOffer';
 import PreviewOffer from '../components/PreviewOffer';
 import Submitting from '../components/messages/Submitting';
 
-import { addOffer, createCheckoutSession } from '../services/apiClient/offers';
+import { createCheckoutSession } from '../services/apiClient/offers';
 
 const initialValues = {
   playerPosition: '',
@@ -25,7 +25,6 @@ const initialValues = {
   howToApply: '',
   applyURLorEmail: '',
   email: '',
-  invoiceNotes: '',
   errors: {
     positionDescription: false,
     howToApply: false,
@@ -94,16 +93,14 @@ const PostAnOffer = () => {
     if (values.positionDescription !== '' && values.howToApply !== '') {
       setValues({ ...values, isSubmitting: true });
       try {
-        // const { data: { id } } = await addOffer(values);
-
         const stripe = await stripePromise;
-        console.log('got here 11==>>', stripe);
+        console.log('got here 1 ==>>', stripe);
         const { data: { id } } = await createCheckoutSession(values);
 
         const { error } = await stripe.redirectToCheckout({
           sessionId: id,
         });
-        console.log('got here 22==>>', error);
+        console.log('got here 2 ==>>', error);
       } catch (err) {
         console.log('error adding offer', err);
       }
