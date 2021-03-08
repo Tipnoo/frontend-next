@@ -310,7 +310,7 @@ const AddUpdateOffer = (props) => {
                 Choose your Payment Method*
               </label>
               <div className="flex mt-2 mb-4">
-                <label className="flex flex-col flex-1 w-1/3 h-28 items-center bg-blue-100 rounded border-4 border-blue-300">
+                <label className="flex flex-col flex-1 w-1/3 h-28 items-center mr-2 bg-blue-100 rounded border-4 border-blue-300">
                   <img src="../images/credit-card-icon.png" alt="creditcard" className="h-16 w-16" />
                   <input type="radio" name="paymentmethod" value="creditcard" checked readOnly />
                   <span className="ml-2">Credit Card</span>
@@ -322,7 +322,7 @@ const AddUpdateOffer = (props) => {
                   <span className="ml-2">Paypal</span>
                 </label>
 
-                <label className="flex flex-col flex-1 w-1/3 h-28 items-center bg-gray-200 rounded border-2 border-gray-300">
+                <label className="flex flex-col flex-1 w-1/3 h-28 items-center ml-2 bg-gray-200 rounded border-2 border-gray-300">
                   <img src="../images/bitcoin-icon.png" alt="creditcard" className="h-11 w-14 my-2.5" />
                   <input type="radio" name="paymentmethod" value="bitcoin" disabled />
                   <span className="ml-2">Bitcoin</span>

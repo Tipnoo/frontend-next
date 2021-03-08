@@ -17,8 +17,8 @@ const OfferCard = (props) => {
   };
 
   const extraGamePrint = (extraGame) => {
-    if (extraGame === 'Game 2') {
-      return <div></div>;
+    if (extraGame === '') {
+      return <div />;
     }
     return (
       <h4 className="inline-block text-super-xs uppercase font-bold border p-1 rounded-sm border-black">
