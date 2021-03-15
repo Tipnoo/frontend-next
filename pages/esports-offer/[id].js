@@ -66,59 +66,36 @@ const UpdateOfferID = () => {
   }, [router]);
 
   const handleChange = (e) => {
-    const currentState = offer;
     const { name, value } = e.target;
-    currentState[name] = value;
-    setOffer(currentState);
+    setOffer({ ...offer, [name]: value });
   };
 
-  //   handleFileChange = (e) => {
-  //     const { offer } = { ...this.state };
-  //     const currentState = offer;
-  //     const newImage = e.target.files[0];
-  //     const imgSize = e.target.files[0].size;
-  //     if (imgSize <= 1000000) {
-  //       currentState.teamLogo = newImage;
-  //       currentState.file = URL.createObjectURL(e.target.files[0]);
-  //       this.setState({
-  //         offer: currentState,
-  //       });
-  //     } else {
-  //       this.setState({
-  //         errors: {
-  //           imgFileSize: true,
-  //         },
-  //         imgActualSize: imgSize,
-  //       });
-  //     }
-  //   };
+  const handleFileChange = (e) => {
+    const currentState = offer;
+    const newImage = e.target.files[0];
+    const imgSize = e.target.files[0].size;
 
-  //   mdeHandleChangeDescription = (e) => {
-  //     const { offer } = { ...this.state };
-  //     const currentState = offer;
-  //     currentState.positionDescription = e;
-  //     this.setState({
-  //       offer: currentState,
-  //     });
-  //   };
+    if (imgSize <= 1000000) {
+      currentState.teamLogo = newImage;
+      currentState.file = URL.createObjectURL(e.target.files[0]);
+      setOffer(currentState);
+    } else {
+      setErrors({ ...errorValues, imgFileSize: true });
+      setImgActualSize(imgSize);
+    }
+  };
 
-  //   mdeHandleChangeRequirements = (e) => {
-  //     const { offer } = { ...this.state };
-  //     const currentState = offer;
-  //     currentState.positionRequirements = e;
-  //     this.setState({
-  //       offer: currentState,
-  //     });
-  //   };
+  const mdeHandleChangeDescription = (e) => {
+    setOffer({ ...offer, positionDescription: e });
+  };
 
-  //   mdeHandleChangeHowToApply = (e) => {
-  //     const { offer } = { ...this.state };
-  //     const currentState = offer;
-  //     currentState.howToApply = e;
-  //     this.setState({
-  //       offer: currentState,
-  //     });
-  //   };
+  const mdeHandleChangeRequirements = (e) => {
+    setOffer({ ...offer, positionRequirements: e });
+  };
+
+  const mdeHandleChangeHowToApply = (e) => {
+    setOffer({ ...offer, howToApply: e });
+  };
 
   //   handleSubmit = (e) => {
   //     e.preventDefault();
@@ -199,30 +176,24 @@ const UpdateOfferID = () => {
   //     }
   //   };
 
-  //   handleDelete = () => {
-  //     const offerId = this.props.match.params.id;
-  //     const { history } = this.props;
-  //     console.log('offerId', offerId);
-  //     deleteOffer(offerId)
-  //       .then((res) => {
-  //         history.push('/deleted');
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       });
-  //   };
+  const handleDelete = () => {
+    const { id } = router.query;
+    deleteOffer(id)
+      .then(() => {
+        router.push('/deleted');
+      })
+      .catch((err) => {
+        console.log('error deleting offer', err);
+      });
+  };
 
   const toggleDeletePopup = () => {
     setDeletePopup(!deletePopup);
   };
 
-  //   closePopupImgSize = () => {
-  //     this.setState({
-  //       errors: {
-  //         imgFileSize: !this.state.errors.imgFileSize,
-  //       },
-  //     });
-  //   };
+  const closePopupImgSize = () => {
+    setErrors({ ...errorValues, imgFileSize: !errorValues.imgFileSize });
+  };
 
   // const {
   //   status,
@@ -261,13 +232,11 @@ const UpdateOfferID = () => {
                 </div>
                 <AddUpdateOffer
                   handleChange={handleChange}
-                //   handleFileChange={this.handleFileChange}
+                  handleFileChange={handleFileChange}
                 //   handleSubmit={this.handleSubmit}
-                //   mdeHandleChangeDescription={this.mdeHandleChangeDescription}
-                //   mdeHandleChangeRequirements={
-                //         this.mdeHandleChangeRequirements
-                //       }
-                //   mdeHandleChangeHowToApply={this.mdeHandleChangeHowToApply}
+                  mdeHandleChangeDescription={mdeHandleChangeDescription}
+                  mdeHandleChangeRequirements={mdeHandleChangeRequirements}
+                  mdeHandleChangeHowToApply={mdeHandleChangeHowToApply}
                   errors={errors}
                   playerPosition={offer.playerPosition}
                   esportsTeam={offer.esportsTeam}
@@ -283,7 +252,7 @@ const UpdateOfferID = () => {
                   submitBtn="Update your Offer"
                   invoiceData={false}
                   updating
-                //   closePopup={this.closePopupImgSize}
+                  closePopup={closePopupImgSize}
                   imgActualSize={imgActualSize}
                 />
                 <PreviewOffer
@@ -308,7 +277,7 @@ const UpdateOfferID = () => {
                   {deletePopup ? (
                     <PopupDeleteOffer
                       toggle={toggleDeletePopup}
-                    //   deleteOffer={handleDelete}
+                      deleteOffer={handleDelete}
                     />
                   ) : null}
                   <p className="text-gray-700 text-sm mt-2 mb-8 px-8">
