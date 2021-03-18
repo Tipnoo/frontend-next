@@ -83,7 +83,7 @@ const PostAnOffer = () => {
       ...values,
       errors: {
         ...values.errors,
-        imgFileSize: !values.errors.imgFileSize,
+        imgFileSize: false,
       },
     });
   };
