@@ -16,13 +16,12 @@ export const createCheckoutSession = ({ teamLogo, ...body }) => {
   return apiClient.post('/esports-offer/create-checkout-session', formData, config);
 };
 
-export const editOffer = (id, body, teamLogo) => {
+export const editOffer = (id, body) => {
   const config = { headers: { 'Content-Type': 'multipart/form-data' } };
   const formData = new FormData();
   Object.keys(body).forEach((fieldName) => {
     formData.append(fieldName, body[fieldName]);
   });
-  formData.append('teamLogo', teamLogo);
   return apiClient.put(`/esports-offer/${id}`, formData, config);
 };
 
