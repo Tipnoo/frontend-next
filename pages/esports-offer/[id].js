@@ -34,101 +34,24 @@ const UpdateOfferID = () => {
   const [status, setStatus] = useState(STATUS.LOADING);
   const router = useRouter();
 
+  // getserversideprops
+  // midudev
+
+  const { id } = router.query;
+
   useEffect(() => {
-    if (router.asPath !== router.route) {
-      const { id } = router.query;
-
-      const getUsers = async () => {
-        try {
-          const res = await getOffer(id);
-          const offerFromDB = res.data;
-
-          setOffer({ ...offerFromDB, file: offerFromDB.teamLogo });
-
-          setStatus(STATUS.LOADED);
-
-          // await getOffer(id)
-          //   .then((res) => {
-          //     setOffer(res.data);
-          //   })
-          //   .catch((err) => {
-          //     setError(err.name);
-          //     setStatus(STATUS.ERROR);
-          //   });
-          // await setStatus(STATUS.LOADED);
-          console.log({ offerFromDB });
-        } catch (err) {
-          console.log('error try catch useffect', err);
-        }
-      };
-
-      getUsers();
-
-    }
-  }, [router]);
-
-    // getserversideprops
-
-  //midudev
-
-  // useEffect(() => {
-  //   console.log({ id });
-  //   const getUsers = async () => {
-  //     try {
-  //       const res = await getOffer(id);
-  //       const offerFromDB = res.data;
-
-  //       setOffer({ ...offerFromDB, file: offerFromDB.teamLogo });
-
-  //       setStatus(STATUS.LOADED);
-
-  //       // await getOffer(id)
-  //       //   .then((res) => {
-  //       //     setOffer(res.data);
-  //       //   })
-  //       //   .catch((err) => {
-  //       //     setError(err.name);
-  //       //     setStatus(STATUS.ERROR);
-  //       //   });
-  //       // await setStatus(STATUS.LOADED);
-  //       console.log({ offerFromDB });
-  //     } catch (err) {
-  //       console.log('error try catch useffect', err);
-  //     }
-  //   };
-
-  //   if (id) { getUsers(); }
-  // }, [id]);
-
-  // useEffect(() => {
-  //   if (router.asPath !== router.route) {
-  //     const { id } = router.query;
-
-  //     getOffer(id)
-  //       .then((res) => {
-  //         setOffer(res.data, () => {
-  //           setStatus(STATUS.LOADED);
-  //           setOffer({ ...offer, file: offer.teamLogo });
-  //         });
-  //       })
-  //       // .then(() => {
-  //       //   setStatus(STATUS.LOADED);
-  //       // })
-  //       // .then(() => {
-  //       //   setOffer({ ...offer, file: offer.teamLogo });
-  //       // })
-  //       .catch((err) => {
-  //         setError(err.name);
-  //         setStatus(STATUS.ERROR);
-  //       });
-
-  //     const updateFile = () => {
-  //       console.log({ offer });
-  //     };
-
-  //     updateFile();
-  //   }
-  // }, [router]);
+    const getUsers = async () => {
+      try {
+        const res = await getOffer(id);
+        const offerFromDB = res.data;
+        setOffer({ ...offerFromDB, file: offerFromDB.teamLogo });
+        setStatus(STATUS.LOADED);
+      } catch (err) {
+        console.log('error useEffect', err);
+      }
+    };
+    if (id) { getUsers(); }
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
