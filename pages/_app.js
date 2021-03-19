@@ -5,7 +5,7 @@ import '../styles/cardStyle.css';
 require('typeface-nunito');
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return <Component { ...pageProps } />;
 }
 
 export default MyApp;

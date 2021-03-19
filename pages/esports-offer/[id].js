@@ -59,14 +59,10 @@ const UpdateOfferID = () => {
   };
 
   const handleFileChange = (e) => {
-    const currentState = offer;
-    const newImage = e.target.files[0];
     const imgSize = e.target.files[0].size;
-
     if (imgSize <= 1000000) {
-      currentState.teamLogo = newImage;
-      currentState.file = URL.createObjectURL(e.target.files[0]);
-      setOffer(currentState);
+      const newLogo = URL.createObjectURL(e.target.files[0]);
+      setOffer({ ...offer, teamLogo: e.target.files[0], file: newLogo });
     } else {
       setErrors({ ...errorValues, imgFileSize: true });
       setImgActualSize(imgSize);
@@ -84,6 +80,113 @@ const UpdateOfferID = () => {
   const mdeHandleChangeHowToApply = (e) => {
     setOffer({ ...offer, howToApply: e });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (errors.positionDescription !== '' && errors.howToApply !== '') {
+      setIsSubmitting(true);
+      try {
+        console.log('got here 1 submit');
+        editOffer(id, offer, offer.teamLogo);
+      } catch (err) {
+        console.log('error updating offer', err);
+      }
+    } else if (errors.positionDescription === '' && errors.howToApply === '') {
+      setErrors({
+        positionDescription: true,
+        howToApply: true,
+      });
+    } else if (errors.positionDescription === '' && errors.howToApply !== '') {
+      setErrors({
+        positionDescription: true,
+        howToApply: false,
+      });
+    } else if (errors.positionDescription !== '' && errors.howToApply === '') {
+      setErrors({
+        positionDescription: false,
+        howToApply: true,
+      });
+    }
+  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const { history } = this.props;
+  //   const {
+  //     _id,
+  //     playerPosition,
+  //     esportsTeam,
+  //     teamLogo,
+  //     locationRestricted,
+  //     primaryGame,
+  //     extraGame,
+  //     pro,
+  //     positionDescription,
+  //     positionRequirements,
+  //     salary,
+  //     howToApply,
+  //     applyURLorEmail,
+  //     email,
+  //     invoiceAddress,
+  //     invoiceNotes,
+  //   } = this.state.offer;
+  //   if (positionDescription !== '' && howToApply !== '') {
+  //     this.setState({
+  //       isSubmitting: true,
+  //     });
+  //     editOffer(
+  //       _id,
+  //       {
+  //         playerPosition,
+  //         esportsTeam,
+  //         locationRestricted,
+  //         primaryGame,
+  //         extraGame,
+  //         pro,
+  //         positionDescription,
+  //         positionRequirements,
+  //         salary,
+  //         howToApply,
+  //         applyURLorEmail,
+  //         email,
+  //         invoiceAddress,
+  //         invoiceNotes,
+  //       },
+  //       teamLogo,
+  //     )
+  //       .then((res) => {
+  //         history.push('/');
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //     this.setState({
+  //       errors: {
+  //         positionDescription: !positionDescription,
+  //         howToApply: !howToApply,
+  //       },
+  //     });
+  //   } else if (positionDescription === '' && howToApply === '') {
+  //     this.setState({
+  //       errors: {
+  //         positionDescription: !positionDescription,
+  //         howToApply: !howToApply,
+  //       },
+  //     });
+  //   } else if (positionDescription === '' && howToApply !== '') {
+  //     this.setState({
+  //       errors: {
+  //         positionDescription: !positionDescription,
+  //       },
+  //     });
+  //   } else if (positionDescription !== '' && howToApply === '') {
+  //     this.setState({
+  //       errors: {
+  //         howToApply: !howToApply,
+  //       },
+  //     });
+  //   }
+  // };
 
   //   handleSubmit = (e) => {
   //     e.preventDefault();
@@ -165,7 +268,6 @@ const UpdateOfferID = () => {
   //   };
 
   const handleDelete = () => {
-    const { id } = router.query;
     deleteOffer(id)
       .then(() => {
         router.push('/deleted');
@@ -215,7 +317,7 @@ const UpdateOfferID = () => {
                 <AddUpdateOffer
                   handleChange={handleChange}
                   handleFileChange={handleFileChange}
-                //   handleSubmit={this.handleSubmit}
+                  handleSubmit={handleSubmit}
                   mdeHandleChangeDescription={mdeHandleChangeDescription}
                   mdeHandleChangeRequirements={mdeHandleChangeRequirements}
                   mdeHandleChangeHowToApply={mdeHandleChangeHowToApply}
