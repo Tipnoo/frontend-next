@@ -25,7 +25,8 @@ export const editOffer = (id, body) => {
   return apiClient.put(`/esports-offer/${id}`, formData, config);
 };
 
-export const deleteOffer = (id) => apiClient.delete(`/esports-offer/${id}`, id);
+// export const deleteOffer = (id) => apiClient.delete(`/esports-offer/${id}`, id);
+export const deleteOffer = (id) => apiClient.delete(`/esports-offer/${id}`, { params: { id } });
 
 // export const offerFilterByGame = (game, id) => apiClient.get(`/esports-offer/${game}`, id);
 

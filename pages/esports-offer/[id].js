@@ -111,6 +111,7 @@ const UpdateOfferID = () => {
   };
 
   const handleDelete = () => {
+    console.log('id', id)
     deleteOffer(id)
       .then(() => {
         router.push('/deleted');
