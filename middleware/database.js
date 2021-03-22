@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+/* import { MongoClient } from 'mongodb';
 import nextConnect from 'next-connect';
 
 const client = new MongoClient(process.env.REACT_APP_BACKEND_URI, {
@@ -15,4 +15,4 @@ async function database(req, res, next) {
 
 const middleware = nextConnect();
 middleware.use(database);
-export default middleware;
+export default middleware; */
