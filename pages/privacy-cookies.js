@@ -1,17 +1,13 @@
-import { useState } from 'react';
-import AddIcon from '@material-ui/icons/Add';
-import Footer from '../components/Footer';
-import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Footer from '@components/Footer';
+import HeaderPostAnOffer from '@components/headers/Header-postAnOffer';
+import { webOwner, personalData } from '@components/content/privacyPageContent';
 
 const PrivacyCookies = () => {
-  const [openedDropdown, setOpenedDropdown] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-
-  const openDropDown = (index) => {
-    setOpenedDropdown(!openedDropdown);
-    setActiveDropdown(index);
-  };
-
   const eachDropdown = () => {
     const privacyTitles = [
       'Web Owner',
@@ -23,24 +19,23 @@ const PrivacyCookies = () => {
     ];
     return privacyTitles.map((eachTitle, index) => (
       <div key={index}>
-        <div className="bg-white border-gray-400 border rounded-sm mt-4 p-2 mx-4 flex items-center">
-          <div>
-            <AddIcon />
-          </div>
-          <div className="flex-1">
-            <p 
-              onClick={() => openDropDown(index)}
-              className="p-2 font-bold text-gray-600"
-            >
-              {eachTitle}
-            </p>
-          </div>
-        </div>
-        {openedDropdown && activeDropdown === index && (
-        <div className="bg-indigo-100 rounded-sm p-2 mx-4">
-          <p className="p-2 font-semibold text-gray-600">hola</p>
-        </div>
-        )}
+        <Accordion className="mt-4 mb-2 mx-4">
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className="">{eachTitle}</Typography>
+          </AccordionSummary>
+          <AccordionDetails className="bg-blue-50">
+            <Typography>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+              sit amet blandit leo lobortis eget. 
+              {webOwner} 
+              {personalData}
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
       </div>
     ));
   };
