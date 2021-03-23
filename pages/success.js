@@ -16,22 +16,21 @@ const OfferPublished = () => (
       />
       <div className="w-5/6 mx-auto mt-4">
         <p className="text-lg">
-          <b>We just sent you two emails:</b>
+          <b>Your offer has been published and we just sent you an email:</b>
         </p>
         <div className="bg-white border-gray-400 border rounded mt-4">
           <p className="p-2 font-semibold text-gray-600">
-            1. A welcome one, where you&apos;ll find your unique link to edit or
-            delete your offer
+            In there, you&apos;ll find
+            {' '}
+            <b>a unique link </b>
+            {' '}
+            to edit or
+            delete your offer whenever you feel like.
+            <br />
+&nbsp;
+            Remember to check your spam folder if you don&apos;t find it :)
           </p>
         </div>
-        <div className="bg-white border-gray-400 border rounded mt-2 mb-4">
-          <p className="p-2 font-semibold text-gray-600">
-            2. Your receipt if the payment was successful, created by Stripe
-          </p>
-        </div>
-        <p className="text-sm text-gray-600">
-          Check the spam folder if you don&apos;t find them!
-        </p>
         <ButtonReturnToHome />
       </div>
     </div>

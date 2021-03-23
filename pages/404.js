@@ -21,7 +21,7 @@ const NotFoundPage = () => (
         <div className="bg-white border-gray-400 border rounded mt-4">
           <p className="p-2 font-semibold text-gray-600">
             It was speculated that error 404 was named after a room at CERN,
-            where Tim Berners-Lee, the inventor of the WWW had his office. But
+            where Tim Berners-Lee, the inventor of the 'web', had his office. But
             this room, in fact, never existed. Just like this page...
           </p>
         </div>

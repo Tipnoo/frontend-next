@@ -17,7 +17,7 @@ const OfferDeleted = () => (
       <div className="w-5/6 mx-auto mt-6">
         <p className="text-xl">
           <b>
-            Following your orders, our robot Ep-092 has deleted your offer
+            Following your orders, our robots have deleted your offer
             from our system.
           </b>
         </p>
@@ -26,7 +26,7 @@ const OfferDeleted = () => (
             If you want, you can let us know about your experience using
             Tipnoo
             {' '}
-            <a href="https://legismusic.typeform.com/to/igbO4azb">here</a>
+            <a href="https://legismusic.typeform.com/to/igbO4azb" className="text-blue-600">here</a>
             .
           </p>
         </div>
