@@ -11,7 +11,7 @@ import {
 
 const PrivacyCookies = () => {
   const dropdown = (title, content) => (
-    <div>
+    <div className="mt-4">
       <Accordion className="mt-4 mb-2 mx-4">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -35,7 +35,7 @@ const PrivacyCookies = () => {
         title="Privacy Policy"
         subtitle="and Cookie Settings"
       />
-      <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
+      <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md">
         {dropdown('Website Ownership', webOwner)}
         {dropdown('Protection of Personal Data', personalData)}
         {dropdown('Collection & Usage of Information', informationUsage)}
