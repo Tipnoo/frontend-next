@@ -36,7 +36,7 @@ const PrivacyCookies = () => {
         subtitle="and Cookie Settings"
       />
       <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
-        {dropdown('Web Owner', webOwner)}
+        {dropdown('Website Ownership', webOwner)}
         {dropdown('Protection of Personal Data', personalData)}
         {dropdown('Collection & Usage of Information', informationUsage)}
         {dropdown('Cookie Policy', cookiePolicy)}
