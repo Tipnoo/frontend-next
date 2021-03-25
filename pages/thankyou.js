@@ -19,7 +19,7 @@ const STATUS = {
   ERROR: 'ERROR',
 };
 
-const ThankYouDOI = (props) => {
+const ThankYouDOI = () => {
   const [urlEmail, setUrlEmail] = useState(undefined);
   const [urlHash, setUrlHash] = useState(undefined);
   const [dbName, setDbName] = useState(undefined);
@@ -44,26 +44,31 @@ const ThankYouDOI = (props) => {
 
   useEffect(() => {
     const values = queryString.parse(location.search);
-    // console.log(values);
 
     setUrlEmail(values.email);
     setUrlHash(values.hash);
     setSecret(values.email + values.hash);
-
-    getSecretFromDb({ secret })
-      .then((response) => {
-        // console.log('response from backend', response);
-        if (response.data.secret === secret) {
-          setStatus(STATUS.OK);
-          setDbName(response.data.name);
-          subscribeTheEmail();
-        }
-      })
-      .catch((errors) => {
-        setError(errors.name);
-        setStatus(STATUS.ERROR);
-      });
+    console.log('secretito1', secret);
   }, []);
+
+  useEffect(() => {
+    if (secret) {
+      getSecretFromDb({ secret })
+        .then((res) => {
+          console.log('secretito2', secret);
+          console.log('response secret from backend', res.data.secret);
+          if (res.data.secret === secret) {
+            setDbName(res.data.name);
+            subscribeTheEmail();
+            setStatus(STATUS.OK);
+          }
+        })
+        .catch((errors) => {
+          setError(errors.name);
+          setStatus(STATUS.ERROR);
+        });
+    }
+  }, [secret]);
 
   return (
     <div>
