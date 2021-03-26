@@ -301,7 +301,7 @@ const AddUpdateOffer = (props) => {
               />
               <p className="text-left text-xs text-gray-600 mb-4">
                 Make sure this email is accessible by you! We use this to send
-                the invoice and edit link. We can not and do not manually resend
+                the edit / delete link. We can not and do not manually resend
                 it!
               </p>
             </div>

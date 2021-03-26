@@ -5,6 +5,7 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import AddUpdateOffer from '../../components/AddUpdateOffer';
 import HeaderPostAnOffer from '../../components/headers/Header-postAnOffer';
 import PreviewOffer from '../../components/PreviewOffer';
+import UpdatingOffer from '../../components/messages/UpdatingOffer';
 import PopupDeleteOffer from '../../components/popups/Popup-deleteOffer';
 import Loading from '../../components/messages/Loading';
 import Error from '../../components/messages/ErrorAlert';
@@ -140,7 +141,7 @@ const UpdateOfferID = () => {
           <HeaderPostAnOffer title="Update or Delete your Offer Here" />
           <div className="absolute w-screen">
             {isSubmitting ? (
-              <div>Updating your Offer...</div>
+              <div><UpdatingOffer /></div>
             ) : (
               <div>
                 <div
