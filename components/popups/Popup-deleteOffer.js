@@ -11,7 +11,7 @@ const PopupDeleteOffer = (props) => {
 
   return (
     <div className="fixed z-50 w-full h-64 top-0">
-      <div className="bg-red-100 border-4 rounded border-red-500 absolute w-11/12 h-full ml-2 mt-48 flex-row">
+      <div className="bg-red-50 border-4 rounded border-gray-600 absolute w-11/12 h-full ml-2 mt-48 flex-row">
         <h3 className="font-bold text-lg mt-8 w-4/5 mx-auto">
           Are you sure you want to delete your Offer?
         </h3>
