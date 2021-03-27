@@ -22,7 +22,7 @@ const STATUS = {
 const ThankYouDOI = () => {
   const [urlEmail, setUrlEmail] = useState(undefined);
   const [urlHash, setUrlHash] = useState(undefined);
-  const [dbName, setDbName] = useState(undefined);
+  const [dbSubscriberName, setDbSubscriberName] = useState(undefined);
   const [secret, setSecret] = useState(undefined);
   const [error, setError] = useState(undefined);
   const [status, setStatus] = useState(STATUS.LOADING);
@@ -31,9 +31,9 @@ const ThankYouDOI = () => {
     console.log(
       'email and name to subscribe once visited DOI page',
       urlEmail,
-      dbName,
+      dbSubscriberName,
     );
-    subscribeEmail({ urlEmail, dbName })
+    subscribeEmail({ urlEmail, dbSubscriberName })
       .then((res) => {
         console.log('response from apiClient call', res);
       })
@@ -58,7 +58,7 @@ const ThankYouDOI = () => {
           console.log('secretito2', secret);
           console.log('response secret from backend', res.data.secret);
           if (res.data.secret === secret) {
-            setDbName(res.data.name);
+            setDbSubscriberName(res.data.name);
             subscribeTheEmail();
             setStatus(STATUS.OK);
           }
