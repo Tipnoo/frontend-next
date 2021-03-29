@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import AddUpdateOffer from '../../../components/AddUpdateOffer';
@@ -138,6 +139,7 @@ const UpdateOfferID = () => {
     case STATUS.LOADED:
       return (
         <div>
+          <NextSeo noindex={true} />
           <HeaderPostAnOffer title="Update or Delete your Offer Here" />
           <div className="absolute w-screen">
             {isSubmitting ? (
