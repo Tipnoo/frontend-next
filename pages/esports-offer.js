@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import AddUpdateOffer from '../components/AddUpdateOffer';
 import PreviewOffer from '../components/PreviewOffer';
@@ -144,6 +145,19 @@ const PostAnOffer = () => {
           <Submitting />
         ) : (
           <div>
+            <div
+              className="bg-yellow-100 border-t-4 border-yellow-200 rounded-b text-blue-darkest px-6 py-3 shadow-md mt-6"
+              role="alert"
+            >
+              <div className="flex text-center">
+                <InfoOutlinedIcon className="text-lg mr-2 self-center" />
+                <div>
+                  <p className="font-bold">
+                    Use the code LAUNCH in checkout (next page) to get a 90% discount in your purchase!
+                  </p>
+                </div>
+              </div>
+            </div>
             <Elements stripe={stripePromise}>
               <AddUpdateOffer
                 handleChange={handleChange}
@@ -160,7 +174,7 @@ const PostAnOffer = () => {
                 closePopup={closePopupImgSize}
                 imgActualSize={values.imgActualSize}
                 locationRestricted="🌏 Worldwide"
-                submitBtn="Proceed to Checkout - $19"
+                submitBtn="Proceed to Checkout - $99"
                 invoiceData
               />
             </Elements>
