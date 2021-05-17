@@ -68,7 +68,7 @@ const CardHiddenContent = (props) => {
          */
         <button
           onClick={togglePopup}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 rounded my-4"
+          className="bg-red-500 hover:bg-red-700 border-b-4 border-red-700 hover:border-red-800 text-white font-bold py-4 px-8 rounded my-4"
         >
           Apply to this Position
         </button>
@@ -79,7 +79,7 @@ const CardHiddenContent = (props) => {
        * It's an URL
        */
       <a href={URLorEmail} target="_blank" rel="noreferrer noopener">
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 rounded my-4">
+        <button className="bg-red-500 hover:bg-red-700 border-b-4 border-red-700 hover:border-red-800 text-white font-bold py-4 px-8 rounded my-4">
           Apply to this Position
         </button>
       </a>
@@ -189,7 +189,7 @@ const CardHiddenContent = (props) => {
             </p>
             <p className="text-xs text-gray-700 text-center">
               When applying for an offer, you should NEVER have to pay to apply.
-              That is a scam! Also always verify you're actually talking to the
+              Also always verify you're actually talking to the
               esports team in the offer and not an imposter. When clicking on
               the button to apply above, you will leave Tipnoo and go to the
               application page for that team outside this site. Tipnoo accepts

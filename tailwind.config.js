@@ -5,7 +5,8 @@ module.exports = {
     fontFamily: {
       // 'serif': ['Georgia', 'Cambria', ...],
       // 'mono': ['SFMono-Regular', 'Menlo', ...],
-      sans: ['Nunito', 'sans-serif'],
+      sans: ['Karla', 'sans-serif'],
+      // custom: ['Karla', 'sans-serif'],
     },
     fontSize: {
       'super-xs': '.65rem',

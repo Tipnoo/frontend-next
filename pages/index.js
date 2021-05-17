@@ -30,6 +30,7 @@ const Home = () => {
         <title>Tipnoo Nextjs</title>
       </Head>
       <Headerhomepage searchQuery={search} />
+      <Offer searchQuery={searchQuery} />
       {marketingBar ? (
         <EmailMarketing
           toggleMarketingBar={toggleMarketingBar}
@@ -37,7 +38,6 @@ const Home = () => {
         />
       ) : null}
       {popup ? <PopupEmailSubscribed toggle={togglePopup} /> : null}
-      <Offer searchQuery={searchQuery} />
       <Footer />
     </div>
   );
