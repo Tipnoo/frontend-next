@@ -38,7 +38,7 @@ const PrivacyCookies = () => {
         </div>
         {openedDropdown && activeDropdown === index && (
         <div className="bg-indigo-100 rounded-sm p-2 mx-4">
-          <p className="p-2 font-semibold text-gray-600">hola</p>
+          <p className="p-2 font-semibold text-gray-600">Content goes here</p>
         </div>
         )}
       </div>

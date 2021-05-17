@@ -55,7 +55,7 @@ const EmailMarketing = (props) => {
           required
         />
         <input
-          className="bg-gray-800 text-red-600 border-2 border-red-600 font-bold px-2 h-10 rounded cursor-pointer"
+          className="bg-gray-800 hover:text-white text-red-600 border-2 border-b-4 border-red-600 font-bold px-2 h-10 rounded cursor-pointer"
           type="submit"
           value="Subscribe"
         />
