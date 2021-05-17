@@ -14,7 +14,7 @@ const NavbarHomepage = () => (
         </a>
       </Link>
       <Link href="/esports-offer">
-        <a className="fixed right-0 z-40 py-2 px-2 mr-4 mt-4 text-center bg-red-500 hover:bg-red-700 text-white font-bold rounded">
+        <a className="fixed right-0 z-40 py-2 px-2 mr-4 mt-4 text-center bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded">
           Post Offer
         </a>
       </Link>

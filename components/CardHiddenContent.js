@@ -189,7 +189,7 @@ const CardHiddenContent = (props) => {
             </p>
             <p className="text-xs text-gray-700 text-center">
               When applying for an offer, you should NEVER have to pay to apply.
-              That is a scam! Also always verify you're actually talking to the
+              Also always verify you're actually talking to the
               esports team in the offer and not an imposter. When clicking on
               the button to apply above, you will leave Tipnoo and go to the
               application page for that team outside this site. Tipnoo accepts

@@ -23,9 +23,13 @@ const EmailMarketing = (props) => {
   };
 
   return (
-    <div className="pb-4 pt-6 bg-gray-800 flex-col relative">
+    <div className="pb-4 pt-5 bg-gray-800 flex-col bottom-0 sticky">
       <h3 className="text-center font-bold text-white">
-        Get a <b>weekly email</b> of all new eSports offers
+        Get a
+        {' '}
+        <b>weekly email</b>
+        {' '}
+        of all new eSports offers
       </h3>
       <form className="py-4 flex justify-center" onSubmit={handleSubmit}>
         <input
