@@ -33,14 +33,14 @@ const OfferCard = (props) => {
         <div className="flex flex-col hover:bg-yellow-100 cursor-pointer">
           <div
             onClick={onClick}
-            className="w-full border-b border-gray-300 p-4 flex h-32"
+            className="w-full border-b border-gray-300 p-1 flex h-auto"
           >
             <img
               className="h-16 w-16 rounded-sm m-2"
               src={props.offer.teamLogo}
               alt={props.offer.esportsTeam}
             />
-            <div className="w-4/5 ml-2 text-left mt-2">
+            <div className="w-4/5 ml-2 text-left h-auto pt-2">
               <h4 className="font-bold text-md">
                 {props.offer.playerPosition}
               </h4>

@@ -13,8 +13,8 @@ const PopupImageSize = (props) => {
 
   return (
     <div className="fixed z-50 w-screen h-72 top-0 text-center left-0">
-      <div className="bg-yellow-100 border-4 rounded-md border-yellow-500 w-11/12 h-full mx-auto mt-48 flex-row">
-        <h3 className="font-bold text-lg mt-8 w-4/5 mx-auto">
+      <div className="bg-green-600 rounded-md w-11/12 h-full mx-auto mt-48 flex-row">
+        <h3 className="font-bold text-lg pt-8 w-4/5 mx-auto text-white">
           The image that you're trying to upload weights
           {' '}
           {convertBytesToMb()}
@@ -22,9 +22,10 @@ const PopupImageSize = (props) => {
           Mb. Please upload an image of less than 1 Mb. Thank you!
         </h3>
 
-        <p className="w-4/5 mt-4 mb-2 mx-auto">
+        <p className="w-4/5 mt-4 mb-2 mx-auto  text-white">
           You can use
           <a
+            className="text-blue-700"
             href="https://tinypng.com/"
             target="_blank"
             rel="noopener noreferrer"
@@ -39,7 +40,7 @@ const PopupImageSize = (props) => {
           <button
             type="button"
             onClick={closePopup}
-            className="bg-yellow-600 hover:bg-yellow-700 text-white border-b-4 border-r-2 border-yellow-700 font-bold py-2 px-4 rounded w-2/5 mt-4 mb-4 mx-auto cursor-pointer"
+            className="bg-yellow-500 hover:bg-yellow-700 text-white border-b-4 border-r-2 border-yellow-700 font-bold py-2 px-4 rounded w-2/5 mt-4 mb-4 mx-auto cursor-pointer"
           >
             Ok, got it!
           </button>

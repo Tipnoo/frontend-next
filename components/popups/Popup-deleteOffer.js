@@ -11,8 +11,8 @@ const PopupDeleteOffer = (props) => {
 
   return (
     <div className="fixed z-50 w-full h-64 top-0">
-      <div className="bg-red-100 border-4 rounded border-red-500 absolute w-11/12 h-full ml-2 mt-48 flex-row">
-        <h3 className="font-bold text-lg mt-8 w-4/5 mx-auto">
+      <div className="bg-indigo-600 rounded-md absolute w-11/12 h-full ml-2 mt-48 flex-row">
+        <h3 className="font-bold text-lg mt-8 w-4/5 mx-auto text-white">
           Are you sure you want to delete your Offer?
         </h3>
         <div>
@@ -29,7 +29,7 @@ const PopupDeleteOffer = (props) => {
             No, go back
           </button>
         </div>
-        <p className="text-gray-700 text-sm mt-2 mb-8 px-8">
+        <p className="text-sm mt-2 mb-8 px-8 text-white">
           This will permanently delete your offer from Tipnoo. You cannot
           retrieve back your offer once deleted.
         </p>

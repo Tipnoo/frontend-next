@@ -9,7 +9,7 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className="bg-white shadow flex w-3/4 rounded-md m-auto mt-6">
+    <div className="bg-white shadow flex w-3/4 md:w-5/12 rounded-md m-auto mt-6">
       <span className="w-auto flex justify-end items-center p-2">
         <i>
           <SearchIcon fontSize="large" />

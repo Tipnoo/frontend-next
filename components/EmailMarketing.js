@@ -23,7 +23,7 @@ const EmailMarketing = (props) => {
   };
 
   return (
-    <div className="pb-4 pt-5 bg-gray-800 flex-col bottom-0 sticky">
+    <div className="pb-4 md:pb-2 pt-5 md:pt-4 bg-gray-800 flex-col bottom-0 sticky">
       <h3 className="text-center font-bold text-white">
         Get a
         {' '}
