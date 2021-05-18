@@ -208,7 +208,7 @@ const UpdateOfferID = () => {
                       deleteOffer={handleDelete}
                     />
                   ) : null}
-                  <p className="text-gray-700 text-sm mt-2 mb-8 px-8">
+                  <p className="text-gray-700 text-sm mt-2 mb-8 px-8 md:px-36">
                     Warning! This will permanently delete your offer from
                     Tipnoo. Do it only if you have already found your player
                     or you have more than enough applicants for your position.

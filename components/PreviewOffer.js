@@ -72,7 +72,7 @@ const PreviewOffer = (props) => {
   // console.log('preview whole state from props', wholeState)
 
   return (
-    <div className={`${props.marginBottom} w-11/12 mx-auto mt-2`}>
+    <div className={`${props.marginBottom} w-11/12 mx-auto mt-2 md:w-9/12`}>
       <fieldset className="border border-gray-300 rounded pb-6 pt-4 bg-gray-100 shadow-md">
         <legend className="font-extrabold text-center uppercase p-2">
           Preview

@@ -25,7 +25,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <Head>
         <title>Tipnoo Nextjs</title>
       </Head>
