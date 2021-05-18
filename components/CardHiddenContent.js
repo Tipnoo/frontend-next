@@ -132,7 +132,7 @@ const CardHiddenContent = (props) => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 md:bg-white md:rounded-b text-left">
+    <div className="p-8 bg-white md:rounded-b text-left">
       {thereIsOffer && (
         <div className="text-sm">
           {needsToBeProPlayer()}
@@ -187,7 +187,7 @@ const CardHiddenContent = (props) => {
               Please reference you found the offer on Tipnoo, this helps us get
               more teams to post here!
             </p>
-            <p className="text-xs text-gray-700 text-center">
+            <p className="text-xs text-gray-700 text-center md:mx-8">
               When applying for an offer, you should NEVER have to pay to apply.
               Also always verify you're actually talking to the
               esports team in the offer and not an imposter. When clicking on
