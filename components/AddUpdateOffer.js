@@ -35,7 +35,7 @@ const AddUpdateOffer = (props) => {
   return (
     <div>
       <form
-        className="w-11/12 mt-6 mx-auto text-center"
+        className="w-11/12 mt-6 mx-auto text-center md:w-9/12"
         onSubmit={handleSubmit}
         id="formElem"
       >
@@ -310,19 +310,19 @@ const AddUpdateOffer = (props) => {
                 Choose your Payment Method*
               </label>
               <div className="flex mt-2 mb-4">
-                <label className="flex flex-col flex-1 w-1/3 h-36 items-center mr-2 bg-blue-100 rounded border-4 border-blue-300">
+                <label className="flex flex-col flex-1 w-1/3 h-36 md:h-28 items-center mr-2 bg-blue-100 rounded border-4 border-blue-300">
                   <img src="../images/credit-card-icon.png" alt="creditcard" className="h-16 w-16" />
                   <input type="radio" name="paymentmethod" value="creditcard" checked readOnly />
                   <span className="">Credit Card</span>
                 </label>
 
-                <label className="flex flex-col flex-1 w-1/3 h-36 items-center bg-gray-200 rounded border-2 border-gray-300">
+                <label className="flex flex-col flex-1 w-1/3 h-36 md:h-28 items-center bg-gray-200 rounded border-2 border-gray-300">
                   <img src="../images/paypal-icon.png" alt="creditcard" className="h-11 w-11 my-2.5" />
                   <input type="radio" name="paymentmethod" value="paypal" disabled />
                   <span className="">Paypal</span>
                 </label>
 
-                <label className="flex flex-col flex-1 w-1/3 h-36 items-center ml-2 bg-gray-200 rounded border-2 border-gray-300">
+                <label className="flex flex-col flex-1 w-1/3 h-36 md:h-28 items-center ml-2 bg-gray-200 rounded border-2 border-gray-300">
                   <img src="../images/bitcoin-icon.png" alt="creditcard" className="h-11 w-14 my-2.5" />
                   <input type="radio" name="paymentmethod" value="bitcoin" disabled />
                   <span className="">Bitcoin</span>
@@ -361,7 +361,7 @@ const AddUpdateOffer = (props) => {
             </p>
           )}
           <input
-            className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 px-6 rounded w-4/5 my-4 mx-auto cursor-pointer"
+            className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 px-6 rounded w-4/5 md:w-3/5 my-4 mx-auto cursor-pointer"
             type="submit"
             value={props.submitBtn}
           />
