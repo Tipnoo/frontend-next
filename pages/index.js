@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <div className="bg-gray-100">
       <Head>
-        <title>Tipnoo Nextjs</title>
+        <title>Tipnoo - Find your eSports Team</title>
       </Head>
       <Headerhomepage searchQuery={search} />
       <Offer searchQuery={searchQuery} />
