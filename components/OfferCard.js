@@ -30,17 +30,17 @@ const OfferCard = (props) => {
   return (
     <div key={props.index}>
       {thereIsOffer && (
-        <div className="flex flex-col hover:bg-yellow-100 cursor-pointer">
+        <div className="flex flex-col hover:bg-yellow-100 cursor-pointer md:w-11/12 md:m-auto md:my-3 md:bg-white md:rounded">
           <div
             onClick={onClick}
-            className="w-full border-b border-gray-300 p-1 flex h-auto"
+            className="w-full border-b md:border border-gray-300 md:rounded-md md:pb-2 p-1 flex h-auto"
           >
             <img
               className="h-16 w-16 rounded-sm m-2"
               src={props.offer.teamLogo}
               alt={props.offer.esportsTeam}
             />
-            <div className="w-4/5 ml-2 text-left h-auto pt-2">
+            <div className="w-4/5 ml-2 text-left h-auto pt-2 md:pt-1">
               <h4 className="font-bold text-md">
                 {props.offer.playerPosition}
               </h4>
