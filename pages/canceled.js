@@ -10,7 +10,7 @@ const CancelOffer = () => (
     />
     <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
       <div className="w-5/6 mx-auto mt-4">
-        <p className="text-lg">
+        <p className="text-lg md:px-20">
           <b>Your order has been cancelled by yourself. If it was an error, you can publish a new offer here:</b>
         </p>
         <ButtonPublishOffer />

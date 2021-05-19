@@ -90,13 +90,13 @@ const ThankYouDOI = () => {
                     alt="email"
                   />
                   <div className="w-5/6 mx-auto mt-6">
-                    <p className="text-xl">
+                    <p className="text-xl md:px-24">
                       <b>
                         From now on, you will receive new eSports offers in your
                         mail inbox.
                       </b>
                     </p>
-                    <div className="bg-white border-gray-400 border rounded mt-6">
+                    <div className="bg-white border-gray-400 border rounded mt-6 md:w-4/5 mx-auto">
                       <p className="p-4 font-semibold text-gray-600">
                         Remember: you&apos;ll have the option to unsubscribe at any time
                         at the bottom of each one of our emails.
