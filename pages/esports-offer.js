@@ -162,6 +162,7 @@ const PostAnOffer = () => {
                 locationRestricted="🌏 Worldwide"
                 submitBtn="Proceed to Checkout - $19"
                 invoiceData
+                wholeState={values}
               />
             </Elements>
             <PreviewOffer wholeState={values} marginBottom="mb-32" />

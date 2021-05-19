@@ -16,7 +16,7 @@ const HeaderPostAnOffer = (props) => (
         />
       </Link>
     </nav>
-    <h1 className="w-4/5 lg:w-2/5 lg:bg-black lg:rounded-md lg:bg-opacity-50 lg:mb-4 lg:pt-2 text-2xl text-center font-extrabold mt-4 pb-4 text-white mx-auto">
+    <h1 className="w-4/5 lg:w-3/5 lg:bg-black lg:rounded-md lg:bg-opacity-50 lg:mb-4 lg:pt-2 text-2xl text-center font-extrabold mt-4 pb-4 text-white mx-auto">
       {props.title}
       <br />
       {props.subtitle}

@@ -30,17 +30,17 @@ const AddUpdateOffer = (props) => {
     props.closePopup();
   };
 
-  const { errors, handleSubmit } = props;
+  const { errors, handleSubmit, wholeState } = props;
 
   return (
     <div>
       <form
-        className="w-11/12 mt-6 mx-auto text-center md:w-9/12"
+        className="w-11/12 lg:w-7/12 mt-6 mx-auto text-center md:w-9/12"
         onSubmit={handleSubmit}
         id="formElem"
       >
         <fieldset className="border border-gray-300 rounded p-6 bg-gray-100 shadow-md">
-          <legend className="font-extrabold text-center uppercase p-2">
+          <legend className="font-extrabold text-center uppercase p-2 lg:text-xl">
             Offer Headline
           </legend>
           <div className="flex flex-col">
@@ -104,7 +104,7 @@ const AddUpdateOffer = (props) => {
         ) : null}
 
         <fieldset className="border border-gray-300 rounded p-6 bg-gray-100 shadow-md mt-2">
-          <legend className="font-extrabold text-center uppercase p-2">
+          <legend className="font-extrabold text-center uppercase p-2 lg:text-xl">
             Position Details
           </legend>
           <div className="flex flex-col">
@@ -283,7 +283,7 @@ const AddUpdateOffer = (props) => {
         </fieldset>
         {props.invoiceData && (
           <fieldset className="border border-gray-300 rounded p-6 bg-gray-100 shadow-md mt-2">
-            <legend className="font-extrabold text-center uppercase p-2">
+            <legend className="font-extrabold text-center uppercase p-2 lg:text-xl">
               Checkout
             </legend>
             <div className="flex flex-col">
@@ -352,8 +352,42 @@ const AddUpdateOffer = (props) => {
         )}
         <div
           id="submitBtn"
-          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200"
+          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex"
         >
+          <div className="hidden lg:flex w-11/12 border border-gray-300 rounded-sm p-4 mt-4 mx-auto bg-white">
+            <img
+              className="h-16 w-16 border border-gray-300 rounded m-2"
+              src={wholeState.file}
+              alt="Your Logo"
+            />
+            <div className="w-4/5 ml-2 text-left lg:flex lg:justify-between lg:my-auto">
+              <div>
+                <h4 className="font-extrabold text-lg">
+                  {(wholeState.playerPosition === '')
+                    ? 'Player Position'
+                    : (<p>{wholeState.playerPosition}</p>)}
+                </h4>
+                <h4 className="font-light text-sm mb-1">
+                  {(wholeState.esportsTeam === '')
+                    ? 'Your Esports Team'
+                    : (<p>{wholeState.esportsTeam}</p>)}
+                </h4>
+              </div>
+              <div className="lg:my-auto">
+                <h4 className="inline-block text-super-xs uppercase border p-1 rounded border-black font-bold mr-2">
+                  {(wholeState.primaryGame === '')
+                    ? 'Game 1'
+                    : (<p>{wholeState.primaryGame}</p>)}
+                </h4>
+                <h4 className="inline-block text-super-xs uppercase font-bold border p-1 rounded border-black">
+                  {(wholeState.extraGame === '')
+                    ? 'Game 2'
+                    : (<p>{wholeState.extraGame}</p>)}
+                </h4>
+              </div>
+            </div>
+            <h4 className="w-1/5 text-super-xs py-8 text-center">1 min ago</h4>
+          </div>
           {((errors.positionDescription) || (errors.howToApply)) && (
             <p className="text-center text-yellow-600 mt-4 mx-10 font-bold">
               <ErrorOutlineIcon />
@@ -363,10 +397,11 @@ const AddUpdateOffer = (props) => {
             </p>
           )}
           <input
-            className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 px-6 rounded w-4/5 md:w-3/5 my-4 mx-auto cursor-pointer"
+            className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 px-6 rounded w-4/5 md:w-3/5 mt-4 mb-2 mx-auto cursor-pointer"
             type="submit"
             value={props.submitBtn}
           />
+          <p className="text-gray-400 mb-2">🔐 Secure payment with Stripe</p>
         </div>
       </form>
     </div>
