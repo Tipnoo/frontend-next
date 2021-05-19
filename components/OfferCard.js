@@ -40,17 +40,21 @@ const OfferCard = (props) => {
               src={props.offer.teamLogo}
               alt={props.offer.esportsTeam}
             />
-            <div className="w-4/5 ml-2 text-left h-auto pt-2 md:pt-1">
-              <h4 className="font-bold text-md">
-                {props.offer.playerPosition}
-              </h4>
-              <h4 className="font-light text-sm mb-1">
-                {props.offer.esportsTeam}
-              </h4>
-              <h4 className="inline-block text-super-xs uppercase border px-2 py-1 rounded-sm border-black font-bold mr-2">
-                {props.offer.primaryGame}
-              </h4>
-              {extraGamePrint(props.offer.extraGame)}
+            <div className="w-4/5 ml-2 text-left h-auto pt-2 md:pt-1 md:flex md:justify-between md:my-auto">
+              <div>
+                <h4 className="font-bold text-md">
+                  {props.offer.playerPosition}
+                </h4>
+                <h4 className="font-light text-sm mb-1">
+                  {props.offer.esportsTeam}
+                </h4>
+              </div>
+              <div className="md:my-auto md:mr-4">
+                <h4 className="inline-block text-super-xs uppercase border px-2 py-1 rounded-sm border-black font-bold mr-2">
+                  {props.offer.primaryGame}
+                </h4>
+                {extraGamePrint(props.offer.extraGame)}
+              </div>
             </div>
             <h4 className="w-1/5 text-super-xs py-8 text-center">
               {props.offer.timePassed}

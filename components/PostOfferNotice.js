@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const PostOfferNotice = () => (
-  <div className="hidden rounded-md bg-gray-800 w-11/12 m-auto my-3 md:flex md:justify-center md:py-3 px-8">
+  <div className="hidden rounded-md bg-gray-800 w-11/12 lg:w-9/12 m-auto my-3 md:flex md:justify-center md:py-3 px-8">
     <span className="my-auto" role="img" aria-label="hand">
       👉
       {' '}
