@@ -30,7 +30,7 @@ const OfferCard = (props) => {
   return (
     <div key={props.index}>
       {thereIsOffer && (
-        <div className="flex flex-col hover:bg-yellow-100 cursor-pointer md:w-11/12 md:m-auto md:my-3 md:bg-white md:rounded">
+        <div className="flex flex-col hover:bg-yellow-100 cursor-pointer md:w-11/12 lg:w-9/12 md:m-auto md:my-3 md:bg-white md:rounded">
           <div
             onClick={onClick}
             className="w-full border-b md:border border-gray-300 md:rounded-md md:pb-2 p-1 flex h-auto"

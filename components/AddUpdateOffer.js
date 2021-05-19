@@ -177,6 +177,8 @@ const AddUpdateOffer = (props) => {
           <div className="flex flex-col">
             <label className="form-label" htmlFor="positionDescription">
               Position Description*
+              {' '}
+              <a className="text-blue-500 underline" href="https://simplemde.com/markdown-guide" target="_blank" rel="noreferrer">(READ HERE HOW TO USE MARKDOWN)</a>
             </label>
             {errors.positionDescription && (
               <p className="text-left text-sm text-yellow-600 mb-2 font-bold">
