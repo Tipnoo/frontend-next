@@ -15,7 +15,7 @@ const ContactUs = () => (
         alt="email"
       />
       <div className="w-5/6 mx-auto mt-8">
-        <div className="text-lg">
+        <div className="text-lg lg:px-16">
           <b>
             Hello, I&apos;m Az-345!
             {' '}
@@ -27,7 +27,7 @@ const ContactUs = () => (
             answer you gladly!
           </b>
         </div>
-        <div className="bg-white border-gray-300 border rounded-sm mt-6 p-2">
+        <div className="bg-white border-gray-300 border rounded-sm mt-6 p-2 lg:mx-16">
           <p className="p-2 font-semibold text-gray-600">
             You can let us know about your experience using Tipnoo clicking
             {' '}

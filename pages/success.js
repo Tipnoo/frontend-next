@@ -14,7 +14,7 @@ const OfferPublished = () => (
         src="/images/transactional-email.png"
         alt="email"
       />
-      <div className="w-5/6 mx-auto mt-4">
+      <div className="w-5/6 lg:w-4/6 xl:w-2/6 mx-auto mt-4">
         <p className="text-lg md:px-24">
           <b>Your offer has been published and we just sent you an email:</b>
         </p>
@@ -31,8 +31,8 @@ const OfferPublished = () => (
             Remember to check your spam folder if you don&apos;t find it :)
           </p>
         </div>
-        <ButtonReturnToHome />
       </div>
+      <ButtonReturnToHome />
     </div>
     <Footer />
   </div>

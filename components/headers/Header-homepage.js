@@ -14,7 +14,7 @@ const Headerhomepage = (props) => {
       }}
     >
       <NavBarHomepage />
-      <h1 className="text-2xl text-center font-extrabold mt-4 text-white">
+      <h1 className="text-2xl lg:text-3xl text-center font-extrabold mt-4 text-white">
         Find your eSports Team
       </h1>
       <SearchBar searchQuery={search} />

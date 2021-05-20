@@ -85,25 +85,25 @@ const ThankYouDOI = () => {
                 />
                 <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
                   <img
-                    className="h-32 mx-auto pt-4"
+                    className="h-32 lg:h-44 mx-auto pt-4"
                     src="/images/subscribed-bot.png"
                     alt="email"
                   />
-                  <div className="w-5/6 mx-auto mt-6">
+                  <div className="w-5/6 lg:w-4/6 xl:w-2/6 mx-auto mt-6">
                     <p className="text-xl md:px-24">
                       <b>
                         From now on, you will receive new eSports offers in your
                         mail inbox.
                       </b>
                     </p>
-                    <div className="bg-white border-gray-400 border rounded mt-6 md:w-4/5 mx-auto">
+                    <div className="bg-white border-gray-400 border rounded mt-6 md:w-4/5 lg:w-3/5 mx-auto">
                       <p className="p-4 font-semibold text-gray-600">
                         Remember: you&apos;ll have the option to unsubscribe at any time
                         at the bottom of each one of our emails.
                       </p>
                     </div>
-                    <ButtonReturnToHome />
                   </div>
+                  <ButtonReturnToHome />
                 </div>
                 <Footer />
               </div>
