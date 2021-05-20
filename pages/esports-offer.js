@@ -165,7 +165,7 @@ const PostAnOffer = () => {
                 wholeState={values}
               />
             </Elements>
-            <PreviewOffer wholeState={values} marginBottom="mb-32" />
+            <PreviewOffer wholeState={values} marginBottom="mb-32 xl:mb-44" />
           </div>
         )}
       </div>

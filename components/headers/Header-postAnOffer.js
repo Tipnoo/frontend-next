@@ -10,13 +10,13 @@ const HeaderPostAnOffer = (props) => (
     <nav className="pl-4 pr-4 py-2">
       <Link href="/">
         <img
-          className="h-16 mx-auto pt-4"
+          className="h-16 mx-auto pt-4 cursor-pointer"
           src="/images/tipnoo-logo.png"
           alt="tipnoo-logo"
         />
       </Link>
     </nav>
-    <h1 className="w-4/5 lg:w-2/5 xl:w-1/4 lg:bg-black lg:rounded-md lg:bg-opacity-50 lg:mb-4 lg:pt-2 text-2xl text-center font-extrabold mt-4 pb-4 text-white mx-auto">
+    <h1 className="w-4/5 lg:w-2/5 xl:w-2/6 lg:bg-black lg:rounded-md lg:bg-opacity-60 lg:mb-4 lg:pt-2 text-2xl text-center font-extrabold mt-4 pb-4 text-white mx-auto">
       {props.title}
       <br />
       {props.subtitle}

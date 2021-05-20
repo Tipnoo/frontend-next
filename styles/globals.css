@@ -9,7 +9,7 @@
 @tailwind components;
 
 .form-label {
-  @apply w-full my-0 mx-auto text-left uppercase font-bold text-sm;
+  @apply w-full my-0 mx-auto text-left uppercase font-bold text-sm lg:text-base;
 }
   
 .form-input {

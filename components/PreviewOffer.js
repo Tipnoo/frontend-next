@@ -72,15 +72,15 @@ const PreviewOffer = (props) => {
   // console.log('preview whole state from props', wholeState)
 
   return (
-    <div className={`${props.marginBottom} w-11/12 lg:w-7/12 mx-auto mt-2 md:w-9/12`}>
+    <div className={`${props.marginBottom} w-11/12 lg:w-7/12 mx-auto mt-2 md:w-9/12 xl:w-5/12`}>
       <fieldset className="border border-gray-300 rounded pb-6 pt-4 bg-gray-100 shadow-md">
         <legend className="font-extrabold text-center uppercase p-2 lg:text-xl">
           Preview
         </legend>
-        <p className="text-center font-bold mx-4">
+        <p className="text-center font-bold mx-4 xl:text-lg">
           Here's a preview of how your offer will look like
         </p>
-        <p className="text-center text-xs mt-2 mx-8">
+        <p className="text-center text-xs lg:text-sm mt-2 mx-8 lg:px-16">
           Don't worry if it's not perfect the first time: your offer is fully
           editable for free after posting it!
         </p>
