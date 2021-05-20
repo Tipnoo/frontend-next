@@ -352,9 +352,9 @@ const AddUpdateOffer = (props) => {
         )}
         <div
           id="submitBtn"
-          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex"
+          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex lg:py-2"
         >
-          <div className="hidden lg:flex w-11/12 border border-gray-300 rounded-sm p-4 mt-4 mx-auto bg-white">
+          <div className="hidden lg:flex w-11/12 lg:w-7/12 rounded border border-gray-300 p-4 mt-0 mx-auto bg-yellow-50">
             <img
               className="h-16 w-16 border border-gray-300 rounded m-2"
               src={wholeState.file}
@@ -362,7 +362,7 @@ const AddUpdateOffer = (props) => {
             />
             <div className="w-4/5 ml-2 text-left lg:flex lg:justify-between lg:my-auto">
               <div>
-                <h4 className="font-extrabold text-lg">
+                <h4 className="font-extrabold text-lg lg:text-xl">
                   {(wholeState.playerPosition === '')
                     ? 'Player Position'
                     : (<p>{wholeState.playerPosition}</p>)}
@@ -374,12 +374,12 @@ const AddUpdateOffer = (props) => {
                 </h4>
               </div>
               <div className="lg:my-auto">
-                <h4 className="inline-block text-super-xs uppercase border p-1 rounded border-black font-bold mr-2">
+                <h4 className="inline-block text-super-xs lg:text-xs uppercase border p-1 rounded border-black font-bold mr-2">
                   {(wholeState.primaryGame === '')
                     ? 'Game 1'
                     : (<p>{wholeState.primaryGame}</p>)}
                 </h4>
-                <h4 className="inline-block text-super-xs uppercase font-bold border p-1 rounded border-black">
+                <h4 className="inline-block text-super-xs lg:text-xs uppercase font-bold border p-1 rounded border-black">
                   {(wholeState.extraGame === '')
                     ? 'Game 2'
                     : (<p>{wholeState.extraGame}</p>)}
@@ -396,12 +396,14 @@ const AddUpdateOffer = (props) => {
               (we have marked them in orange) and then press the button again
             </p>
           )}
-          <input
-            className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 px-6 rounded w-4/5 md:w-3/5 mt-4 mb-2 mx-auto cursor-pointer"
-            type="submit"
-            value={props.submitBtn}
-          />
-          <p className="text-gray-400 mb-2">🔐 Secure payment with Stripe</p>
+          <div className="lg:w-2/5">
+            <input
+              className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 mt-4 mb-2 mx-auto cursor-pointer"
+              type="submit"
+              value={props.submitBtn}
+            />
+            <p className="text-gray-400 mb-2">🔐 Secure payment with Stripe</p>
+          </div>
         </div>
       </form>
     </div>
