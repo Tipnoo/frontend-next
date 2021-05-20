@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
 const PopupApplyToEmail = (props) => {
@@ -7,20 +8,31 @@ const PopupApplyToEmail = (props) => {
 
   return (
     <div className="fixed z-50 w-screen h-72 top-0 text-center left-0">
-      <div className="bg-yellow-100 border-4 rounded-md border-yellow-500 w-11/12 h-full mx-auto mt-48 flex-row">
+      <div className="bg-indigo-500 rounded-md w-11/12 md:w-9/12 h-full mx-auto mt-48 flex-row relative shadow-2xl">
+        <div className="absolute top-0 right-6">
+          <span
+            className="text-white text-4xl font-extrabold cursor-pointer"
+            onClick={closePopup}
+            role="button"
+            tabIndex={0}
+          >
+            &times;
+          </span>
+        </div>
         <img
-          className="h-20 mx-auto pt-4"
+          className="h-20 md:h-28 mx-auto pt-6"
           src="/images/apply-to-email.png"
           alt="email"
-        ></img>
-        <h3 className="font-bold mt-4 text-lg w-4/5 mx-auto">
+        />
+        <h3 className="font-bold mt-4 text-lg w-4/5 mx-auto text-white">
           You can apply to this offer sending an email to:
         </h3>
-        <p className="w-4/5 mt-4 mb-2 mx-auto">{props.applyEmail}</p>
+        <p className="w-4/5 mt-4 mb-2 mx-auto text-white md:text-lg">{props.applyEmail}</p>
         <div>
           <button
             onClick={closePopup}
-            className="bg-yellow-600 hover:bg-yellow-700 text-white border-b-4 border-r-2 border-yellow-700 font-bold py-2 px-4 rounded w-2/5 mt-4 mb-4 mx-auto cursor-pointer"
+            className="bg-yellow-600 hover:bg-yellow-700 text-white border-b-4 border-r-2 border-yellow-700 font-bold md:text-lg py-2 px-4 rounded w-2/5 mt-4 mb-4 mx-auto cursor-pointer"
+            type="button"
           >
             Ok, got it!
           </button>

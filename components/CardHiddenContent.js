@@ -24,17 +24,17 @@ const CardHiddenContent = (props) => {
   const needsToBeProPlayer = () => {
     if (props.offer.pro === true) {
       return (
-        <div className="bg-red-300 text-center p-4 mb-4 rounded flex">
-          <ErrorOutlineIcon className="self-center" />
-          <p className="pl-2">
+        <div className="bg-red-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 md:m-auto md:mb-6">
+          <ErrorOutlineIcon className="self-center mr-4" />
+          <p>
             You need to be a Professional Player to Apply to this position
           </p>
         </div>
       );
     }
     return (
-      <div className="bg-green-300 text-center p-4 mb-4 rounded flex">
-        <CheckCircleOutlineIcon className="self-center" />
+      <div className="bg-green-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 md:m-auto md:mb-6">
+        <CheckCircleOutlineIcon className="self-center mr-4" />
         <p>
           You don't need to be a Professional Player to Apply to this position
         </p>
@@ -68,7 +68,7 @@ const CardHiddenContent = (props) => {
          */
         <button
           onClick={togglePopup}
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 rounded my-4"
+          className="bg-red-500 hover:bg-red-700 border-b-4 border-red-700 hover:border-red-800 text-white font-bold py-4 px-8 rounded my-4"
         >
           Apply to this Position
         </button>
@@ -79,7 +79,7 @@ const CardHiddenContent = (props) => {
        * It's an URL
        */
       <a href={URLorEmail} target="_blank" rel="noreferrer noopener">
-        <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-4 px-8 rounded my-4">
+        <button className="bg-red-500 hover:bg-red-700 border-b-4 border-red-700 hover:border-red-800 text-white font-bold py-4 px-8 rounded my-4">
           Apply to this Position
         </button>
       </a>
@@ -132,7 +132,7 @@ const CardHiddenContent = (props) => {
   };
 
   return (
-    <div className="p-8 bg-gray-100 text-left">
+    <div className="p-8 bg-white md:rounded-b text-left">
       {thereIsOffer && (
         <div className="text-sm">
           {needsToBeProPlayer()}
@@ -187,9 +187,9 @@ const CardHiddenContent = (props) => {
               Please reference you found the offer on Tipnoo, this helps us get
               more teams to post here!
             </p>
-            <p className="text-xs text-gray-700 text-center">
+            <p className="text-xs text-gray-700 text-center md:mx-8">
               When applying for an offer, you should NEVER have to pay to apply.
-              That is a scam! Also always verify you're actually talking to the
+              Also always verify you're actually talking to the
               esports team in the offer and not an imposter. When clicking on
               the button to apply above, you will leave Tipnoo and go to the
               application page for that team outside this site. Tipnoo accepts

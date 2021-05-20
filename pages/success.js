@@ -14,12 +14,12 @@ const OfferPublished = () => (
         src="/images/transactional-email.png"
         alt="email"
       />
-      <div className="w-5/6 mx-auto mt-4">
-        <p className="text-lg">
+      <div className="w-5/6 lg:w-4/6 xl:w-2/6 mx-auto mt-4">
+        <p className="text-lg md:px-24">
           <b>Your offer has been published and we just sent you an email:</b>
         </p>
-        <div className="bg-white border-gray-400 border rounded mt-4">
-          <p className="p-2 font-semibold text-gray-600">
+        <div className="bg-white border-gray-400 border rounded mt-4 md:w-4/5 md:mx-auto">
+          <p className="p-2 font-semibold text-gray-600 md:px-4">
             In there, you&apos;ll find
             {' '}
             <b>a unique link </b>
@@ -31,8 +31,8 @@ const OfferPublished = () => (
             Remember to check your spam folder if you don&apos;t find it :)
           </p>
         </div>
-        <ButtonReturnToHome />
       </div>
+      <ButtonReturnToHome />
     </div>
     <Footer />
   </div>

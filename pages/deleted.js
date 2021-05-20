@@ -10,11 +10,11 @@ const OfferDeleted = () => (
     />
     <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
       <img
-        className="h-32 mx-auto pt-4"
+        className="h-32 lg:h-44 mx-auto pt-4"
         src="/images/trash-robot.png"
         alt="email"
       />
-      <div className="w-5/6 mx-auto mt-6">
+      <div className="w-5/6 lg:w-3/6 xl:w-2/6 mx-auto mt-6">
         <p className="text-xl">
           <b>
             Following your orders, our robots have deleted your offer

@@ -72,15 +72,15 @@ const PreviewOffer = (props) => {
   // console.log('preview whole state from props', wholeState)
 
   return (
-    <div className={`${props.marginBottom} w-11/12 mx-auto mt-2`}>
+    <div className={`${props.marginBottom} w-11/12 lg:w-7/12 mx-auto mt-2 md:w-9/12 xl:w-5/12`}>
       <fieldset className="border border-gray-300 rounded pb-6 pt-4 bg-gray-100 shadow-md">
-        <legend className="font-extrabold text-center uppercase p-2">
+        <legend className="font-extrabold text-center uppercase p-2 lg:text-xl">
           Preview
         </legend>
-        <p className="text-center font-bold mx-4">
+        <p className="text-center font-bold mx-4 xl:text-lg">
           Here's a preview of how your offer will look like
         </p>
-        <p className="text-center text-xs mt-2 mx-8">
+        <p className="text-center text-xs lg:text-sm mt-2 mx-8 lg:px-16">
           Don't worry if it's not perfect the first time: your offer is fully
           editable for free after posting it!
         </p>
@@ -91,27 +91,31 @@ const PreviewOffer = (props) => {
             src={wholeState.file}
             alt="Your Logo"
           />
-          <div className="w-4/5 ml-2 text-left">
-            <h4 className="font-extrabold text-lg">
-              {(wholeState.playerPosition === '')
-                ? 'Player Position'
-                : (<p>{wholeState.playerPosition}</p>)}
-            </h4>
-            <h4 className="font-light text-sm mb-1">
-              {(wholeState.esportsTeam === '')
-                ? 'Your Esports Team'
-                : (<p>{wholeState.esportsTeam}</p>)}
-            </h4>
-            <h4 className="inline-block text-super-xs uppercase border p-1 rounded border-black font-bold mr-2">
-              {(wholeState.primaryGame === '')
-                ? 'Game 1'
-                : (<p>{wholeState.primaryGame}</p>)}
-            </h4>
-            <h4 className="inline-block text-super-xs uppercase font-bold border p-1 rounded border-black">
-              {(wholeState.extraGame === '')
-                ? 'Game 2'
-                : (<p>{wholeState.extraGame}</p>)}
-            </h4>
+          <div className="w-4/5 ml-2 text-left lg:flex lg:justify-between lg:my-auto">
+            <div>
+              <h4 className="font-extrabold text-lg">
+                {(wholeState.playerPosition === '')
+                  ? 'Player Position'
+                  : (<p>{wholeState.playerPosition}</p>)}
+              </h4>
+              <h4 className="font-light text-sm mb-1">
+                {(wholeState.esportsTeam === '')
+                  ? 'Your Esports Team'
+                  : (<p>{wholeState.esportsTeam}</p>)}
+              </h4>
+            </div>
+            <div className="lg:my-auto">
+              <h4 className="inline-block text-super-xs uppercase border p-1 rounded border-black font-bold mr-2">
+                {(wholeState.primaryGame === '')
+                  ? 'Game 1'
+                  : (<p>{wholeState.primaryGame}</p>)}
+              </h4>
+              <h4 className="inline-block text-super-xs uppercase font-bold border p-1 rounded border-black">
+                {(wholeState.extraGame === '')
+                  ? 'Game 2'
+                  : (<p>{wholeState.extraGame}</p>)}
+              </h4>
+            </div>
           </div>
           <h4 className="w-1/5 text-super-xs py-8 text-center">1 min ago</h4>
         </div>

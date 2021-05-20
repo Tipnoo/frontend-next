@@ -8,14 +8,14 @@ const ContactUs = () => (
       title="Contact Us"
       subtitle="Let us know how we can help"
     />
-    <div className="bg-gray-50 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
+    <div className="bg-gray-50 md:bg-white text-center rounded-b text-teal-darkest px-2 py-3 h-screen md:w-7/12 md:m-auto">
       <img
         className="h-32 mx-auto pt-4"
         src="/images/robot-support.png"
         alt="email"
       />
       <div className="w-5/6 mx-auto mt-8">
-        <div className="text-lg">
+        <div className="text-lg lg:px-16">
           <b>
             Hello, I&apos;m Az-345!
             {' '}
@@ -27,7 +27,7 @@ const ContactUs = () => (
             answer you gladly!
           </b>
         </div>
-        <div className="bg-white border-gray-300 border rounded-sm mt-6 p-2">
+        <div className="bg-white border-gray-300 border rounded-sm mt-6 p-2 lg:mx-16">
           <p className="p-2 font-semibold text-gray-600">
             You can let us know about your experience using Tipnoo clicking
             {' '}

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Headerhomepage from '../components/headers/Header-homepage';
 import EmailMarketing from '../components/EmailMarketing';
+import PostOfferNotice from '../components/PostOfferNotice';
 import Offer from '../components/Offer';
 import PopupEmailSubscribed from '../components/popups/Popup-emailSubscribed';
 import Footer from '../components/Footer';
@@ -25,11 +26,13 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="bg-gray-100">
       <Head>
-        <title>Tipnoo Nextjs</title>
+        <title>Tipnoo - Find your eSports Team</title>
       </Head>
       <Headerhomepage searchQuery={search} />
+      <PostOfferNotice />
+      <Offer searchQuery={searchQuery} />
       {marketingBar ? (
         <EmailMarketing
           toggleMarketingBar={toggleMarketingBar}
@@ -37,7 +40,6 @@ const Home = () => {
         />
       ) : null}
       {popup ? <PopupEmailSubscribed toggle={togglePopup} /> : null}
-      <Offer searchQuery={searchQuery} />
       <Footer />
     </div>
   );
