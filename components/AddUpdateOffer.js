@@ -386,7 +386,7 @@ const AddUpdateOffer = (props) => {
                 </h4>
               </div>
             </div>
-            <h4 className="w-1/5 text-super-xs py-8 text-center">1 min ago</h4>
+            <h4 className="w-1/5 text-super-xs lg:text-xs py-8 text-center my-auto">1 min ago</h4>
           </div>
           {((errors.positionDescription) || (errors.howToApply)) && (
             <p className="text-center text-yellow-600 mt-4 mx-10 font-bold">

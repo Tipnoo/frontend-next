@@ -149,7 +149,7 @@ const PostAnOffer = () => {
               className="bg-yellow-100 border-t-4 border-yellow-200 rounded-b text-blue-darkest px-6 py-3 shadow-md mt-6"
               role="alert"
             >
-              <div className="flex text-center">
+              <div className="flex justify-center">
                 <InfoOutlinedIcon className="text-lg mr-2 self-center" />
                 <div>
                   <p className="font-bold">
