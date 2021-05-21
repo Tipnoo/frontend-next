@@ -184,6 +184,7 @@ const UpdateOfferID = () => {
                   updating
                   closePopup={closePopupImgSize}
                   imgActualSize={imgActualSize}
+                  wholeState={offer}
                 />
                 <PreviewOffer
                   wholeState={offer}
