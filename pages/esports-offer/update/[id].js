@@ -139,18 +139,48 @@ const UpdateOfferID = () => {
     case STATUS.LOADED:
       return (
         <div>
-          <NextSeo noindex={true} />
+          <NextSeo noindex />
           <HeaderPostAnOffer title="Update or Delete your Offer Here" />
           <div className="absolute w-screen">
             {isSubmitting ? (
               <div><UpdatingOffer /></div>
             ) : (
               <div>
+                <div className="xl:fixed left-5 xl:w-3/12">
+                  <div className="bg-red-100 text-center border-t-4 border-red-200 rounded-b text-blue-darkest px-2 py-3 shadow-md mt-4 xl:mt-0 mb-4">
+                    <p className="font-bold text-lg mt-4">
+                      You can Delete your Offer here:
+                    </p>
+                    <button
+                      type="button"
+                      className="bg-yellow-600 hover:bg-yellow-700 text-white border-b-4 border-r-2 border-yellow-700 hover:border-yellow-800 font-bold py-2 px-4 rounded w-2/5 lg:w-1/5 xl:w-3/5 mt-6 mb-4 mx-auto cursor-pointer"
+                      onClick={(e) => {
+                        toggleDeletePopup(e);
+                      }}
+                    >
+                      Delete Offer
+                    </button>
+
+                    {deletePopup ? (
+                      <PopupDeleteOffer
+                        toggle={toggleDeletePopup}
+                        deleteOffer={handleDelete}
+                      />
+                    ) : null}
+                    <p className="text-gray-700 text-sm mt-2 mb-8 px-8 md:px-36 xl:px-2 lg:w-5/6 xl:w-6/6 lg:mx-auto">
+                      Warning! This will permanently delete your offer from
+                      Tipnoo. Do it only if you have already found your player
+                      or you have more than enough applicants for your position.
+                      You cannot retrieve back your offer once deleted.
+                    </p>
+                  </div>
+
+                </div>
                 <div
-                  className="bg-blue-100 border-t-4 border-blue-200 rounded-b text-blue-darkest px-6 py-3 shadow-md mt-6"
+                  className="bg-blue-100 border-t-4 border-blue-200 rounded-b text-blue-darkest px-6 py-3 shadow-md mt-6 xl:w-5/12 xl:mx-auto"
                   role="alert"
                 >
-                  <div className="flex text-center">
+                  <div className="flex justify-center text-center">
                     <InfoOutlinedIcon className="text-lg mr-2 self-center" />
                     <div>
                       <p className="font-bold">
@@ -188,36 +218,8 @@ const UpdateOfferID = () => {
                 />
                 <PreviewOffer
                   wholeState={offer}
-                  marginBottom="mb-8"
+                  marginBottom="mb-32 lg:mb-44"
                 />
-
-                <div className="bg-red-100 text-center border-t-4 border-red-200 rounded-b text-blue-darkest px-2 py-3 shadow-md mb-32">
-                  <p className="font-bold text-lg mt-4">
-                    You can Delete your Offer here:
-                  </p>
-                  <button
-                    type="button"
-                    className="bg-yellow-600 hover:bg-yellow-700 text-white border-b-4 border-r-2 border-yellow-700 font-bold py-2 px-4 rounded w-2/5 mt-6 mb-4 mx-auto cursor-pointer"
-                    onClick={(e) => {
-                      toggleDeletePopup(e);
-                    }}
-                  >
-                    Delete Offer
-                  </button>
-
-                  {deletePopup ? (
-                    <PopupDeleteOffer
-                      toggle={toggleDeletePopup}
-                      deleteOffer={handleDelete}
-                    />
-                  ) : null}
-                  <p className="text-gray-700 text-sm mt-2 mb-8 px-8 md:px-36">
-                    Warning! This will permanently delete your offer from
-                    Tipnoo. Do it only if you have already found your player
-                    or you have more than enough applicants for your position.
-                    You cannot retrieve back your offer once deleted.
-                  </p>
-                </div>
               </div>
             )}
           </div>

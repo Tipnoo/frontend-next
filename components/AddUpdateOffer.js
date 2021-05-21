@@ -354,7 +354,7 @@ const AddUpdateOffer = (props) => {
           id="submitBtn"
           className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex lg:py-2 xl:py-0"
         >
-          <div className="hidden lg:flex w-11/12 lg:w-7/12 rounded border border-gray-300 p-4 xl:p-2 mt-0 mx-auto lg:m-4 bg-yellow-50">
+          <div className="hidden lg:flex w-11/12 lg:w-7/12 rounded border border-gray-300 p-4 xl:p-0 mt-0 mx-auto lg:m-4 bg-blue-50">
             <img
               className="h-16 xl:h-20 w-16 xl:w-20 border border-gray-300 rounded m-2"
               src={wholeState.file}
@@ -402,7 +402,8 @@ const AddUpdateOffer = (props) => {
               type="submit"
               value={props.submitBtn}
             />
-            <p className="text-gray-400 mb-2">🔐 Secure payment with Stripe</p>
+            {props.invoiceData && (<p className="text-gray-400 mb-2">🔐 Secure payment with Stripe</p>)}
+            {!props.invoiceData && (<p className="text-gray-400 mb-2">Changes will take effect immediately</p>)}
           </div>
         </div>
       </form>

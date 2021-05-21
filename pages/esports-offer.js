@@ -146,14 +146,18 @@ const PostAnOffer = () => {
         ) : (
           <div>
             <div
-              className="bg-yellow-100 border-t-4 border-yellow-200 rounded-b text-blue-darkest px-6 py-3 shadow-md mt-6"
+              className="bg-yellow-100 border-t-4 border-yellow-200 rounded-b text-blue-darkest px-6 py-3 shadow-md mt-6 lg:w-7/12 xl:w-5/12 mx-auto"
               role="alert"
             >
-              <div className="flex justify-center">
+              <div className="flex justify-center text-center xl:px-8">
                 <InfoOutlinedIcon className="text-lg mr-2 self-center" />
                 <div>
                   <p className="font-bold">
-                    Use the code LAUNCH in checkout (next page) to get a 90% discount in your purchase!
+                    Use the code
+                    {' '}
+                    <b className="text-indigo-600">LAUNCH</b>
+                    {' '}
+                    on the checkout page to get a 90% discount in your purchase!
                   </p>
                 </div>
               </div>
@@ -179,7 +183,7 @@ const PostAnOffer = () => {
                 wholeState={values}
               />
             </Elements>
-            <PreviewOffer wholeState={values} marginBottom="mb-32 xl:mb-44" />
+            <PreviewOffer wholeState={values} marginBottom="mb-32 lg:mb-44" />
           </div>
         )}
       </div>

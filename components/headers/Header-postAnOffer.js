@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const HeaderPostAnOffer = (props) => (
   <div
-    className="bg-cover border-b-4 border-purple-500"
+    className="bg-cover shadow-xl"
     style={{
-      backgroundImage: 'url(/images/tipnoo-home-1.jpg)',
+      backgroundImage: 'url(/images/tipnoo-home-7.jpg)',
     }}
   >
     <nav className="pl-4 pr-4 py-2">
@@ -16,7 +16,7 @@ const HeaderPostAnOffer = (props) => (
         />
       </Link>
     </nav>
-    <h1 className="w-4/5 lg:w-2/5 xl:w-2/6 lg:bg-black lg:rounded-md lg:bg-opacity-60 lg:mb-4 lg:pt-2 text-2xl text-center font-extrabold mt-4 pb-4 text-white mx-auto">
+    <h1 className="w-4/5 lg:w-2/5 xl:w-2/6 lg:mb-4 lg:pt-2 text-2xl xl:text-3xl text-center font-extrabold mt-4 pb-4 text-white lg:text-black mx-auto">
       {props.title}
       <br />
       {props.subtitle}
