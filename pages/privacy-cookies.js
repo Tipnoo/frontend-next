@@ -23,7 +23,7 @@ const PrivacyCookies = () => {
     ];
     return privacyTitles.map((eachTitle, index) => (
       <div key={index}>
-        <div className="bg-white border-gray-400 border rounded-sm mt-4 p-2 mx-4 flex items-center md:w-9/12 md:m-auto md:mt-4">
+        <div className="bg-white border-gray-400 border rounded-sm mt-4 p-2 mx-4 flex items-center md:w-9/12 xl:w-6/12 md:m-auto md:mt-4 cursor-pointer">
           <div>
             <AddIcon />
           </div>
@@ -37,7 +37,7 @@ const PrivacyCookies = () => {
           </div>
         </div>
         {openedDropdown && activeDropdown === index && (
-        <div className="bg-indigo-100 rounded-sm p-2 mx-4 md:w-9/12 md:m-auto">
+        <div className="bg-indigo-100 rounded-sm p-2 mx-4 md:w-9/12 xl:w-6/12 md:m-auto">
           <p className="p-2 font-semibold text-gray-600">Content goes here</p>
         </div>
         )}
