@@ -1,11 +1,5 @@
 @tailwind base;
 
-/* @layer base {
-  a {
-    @apply text-blue-600;
-  }
-} */
-
 @tailwind components;
 
 .form-label {

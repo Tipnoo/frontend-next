@@ -11,7 +11,7 @@ import Footer from '../components/Footer';
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [marketingBar, setMarketingBar] = useState(true);
-  const [popup, setPopup] = useState(true);
+  const [popup, setPopup] = useState(false);
 
   const toggleMarketingBar = () => {
     setMarketingBar(!marketingBar);

@@ -13,7 +13,7 @@ const PostOfferNotice = () => (
       </b>
     </p>
     <Link href="/esports-offer">
-      <a className="p-2 my-auto text-center border-b-4 bg-gray-800 hover:text-white text-red-600 border-2 border-red-600 hover:border-white font-bold rounded">
+      <a className="p-2 my-auto text-center border-b-4 bg-gray-800 hover:text-white text-red-600 border-2 border-red-600 font-bold rounded">
         Post an Offer
       </a>
     </Link>
