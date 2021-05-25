@@ -25,7 +25,7 @@ const CardHiddenContent = (props) => {
     if (props.offer.pro === true) {
       return (
         <div className="bg-red-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 xl:w-3/5 md:m-auto md:mb-6">
-          <ErrorOutlineIcon className="self-center mr-4" />
+          <img className="h-4 mr-2 my-auto" src="/images/icon-information.svg" alt="info icon" />
           <p>
             You need to be a Professional Player to Apply to this position
           </p>
@@ -34,7 +34,7 @@ const CardHiddenContent = (props) => {
     }
     return (
       <div className="bg-green-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 xl:w-3/5 md:m-auto md:mb-6">
-        <CheckCircleOutlineIcon className="self-center mr-4" />
+        <img className="h-4 mr-2 my-auto" src="/images/icon-information.svg" alt="info icon" />
         <p>
           You don't need to be a Professional Player to Apply to this position
         </p>
