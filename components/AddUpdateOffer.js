@@ -352,7 +352,7 @@ const AddUpdateOffer = (props) => {
         )}
         <div
           id="submitBtn"
-          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex lg:py-2 xl:py-0"
+          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex lg:justify-around lg:py-2 xl:py-0"
         >
           <div className="hidden lg:flex w-11/12 lg:w-7/12 rounded border border-gray-300 p-4 xl:p-0 mt-0 mx-auto lg:m-4 bg-blue-50">
             <img
@@ -396,14 +396,14 @@ const AddUpdateOffer = (props) => {
               (we have marked them in orange) and then press the button again
             </p>
           )}
-          <div className="lg:w-2/5 xl:my-auto">
+          <div className="lg:w-2/5 xl:w-3/12 xl:my-auto xl:border-gray-200 xl:border-l-2">
             <input
-              className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 mt-4 mb-2 mx-auto cursor-pointer transform hover:translate-y-0.5"
+              className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5"
               type="submit"
               value={props.submitBtn}
             />
-            {props.invoiceData && (<p className="text-gray-400 mb-2">🔐 Secure payment with Stripe</p>)}
-            {!props.invoiceData && (<p className="text-gray-400 mb-2">Changes will take effect immediately</p>)}
+            {props.invoiceData && (<p className="text-gray-400 mb-2 lg:mb-0">🔐 Secure payment with Stripe</p>)}
+            {!props.invoiceData && (<p className="text-gray-400 mb-2 lg:mb-0">Changes will take effect immediately</p>)}
           </div>
         </div>
       </form>

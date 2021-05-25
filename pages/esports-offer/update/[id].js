@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import AddUpdateOffer from '../../../components/AddUpdateOffer';
 import HeaderPostAnOffer from '../../../components/headers/Header-postAnOffer';
 import PreviewOffer from '../../../components/PreviewOffer';
@@ -181,9 +180,9 @@ const UpdateOfferID = () => {
                   role="alert"
                 >
                   <div className="flex justify-center text-center">
-                    <InfoOutlinedIcon className="text-lg mr-2 self-center" />
+                    <img className="h-6 my-auto" src="/images/001-info.svg" alt="info icon" />
                     <div>
-                      <p className="font-bold">
+                      <p className="font-bold xl:font-normal xl:px-8">
                         Due to our Security Policy, if you update your Offer
                         you must upload again the Team Logo
                       </p>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import AddUpdateOffer from '../components/AddUpdateOffer';
 import PreviewOffer from '../components/PreviewOffer';
@@ -150,9 +149,9 @@ const PostAnOffer = () => {
               role="alert"
             >
               <div className="flex justify-center text-center xl:px-8">
-                <InfoOutlinedIcon className="text-lg mr-2 self-center" />
+                <img className="h-8 my-auto" src="/images/002-info.svg" alt="info icon" />
                 <div>
-                  <p className="font-bold">
+                  <p className="font-bold xl:font-normal xl:px-8">
                     Use the code
                     {' '}
                     <b className="text-indigo-600">LAUNCH</b>
