@@ -30,7 +30,7 @@ const PrivacyCookies = () => {
           <div className="flex-1">
             <p 
               onClick={() => openDropDown(index)}
-              className="p-2 font-bold text-gray-600"
+              className="p-2 font-bold xl:text-lg text-gray-600"
             >
               {eachTitle}
             </p>
