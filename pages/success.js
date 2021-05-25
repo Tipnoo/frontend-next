@@ -10,7 +10,7 @@ const OfferPublished = () => (
     />
     <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
       <img
-        className="h-32 mx-auto pt-4"
+        className="h-32 lg:h-44 mx-auto pt-4"
         src="/images/transactional-email.png"
         alt="email"
       />

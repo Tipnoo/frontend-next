@@ -15,11 +15,11 @@ const ContactUs = () => (
           src="/images/robot-support.svg"
           alt="email"
         />
-        <div className="w-5/6 xl:w-8/12 mx-auto mt-8 lg:bg-gray-200 rounded-md relative">
+        <div className="w-5/6 xl:w-8/12 mx-auto mt-8 lg:bg-indigo-200 rounded-md relative lg:shadow-xl">
           <div className="hidden w-11 overflow-hidden lg:inline-block absolute left-0 mt-6 -ml-8">
-            <div className=" h-16 bg-gray-200 -rotate-45 transform origin-top-left" />
+            <div className=" h-16 bg-indigo-200 -rotate-45 transform origin-top-left" />
           </div>
-          <div className="text-lg xl:text-2xl lg:px-16 text-gray-700 lg:py-auto">
+          <div className="text-lg font-bold lg:font-normal xl:text-2xl lg:px-16 text-gray-900 lg:py-auto">
             <span className="lg:flex lg:flex-col lg:justify-center lg:p-4 xl:pt-8">
               Hello, I&apos;m AQ-305!
               {' '}
@@ -42,11 +42,11 @@ const ContactUs = () => (
         </div>
       </div>
 
-      <div className="bg-white border-gray-300 border rounded-sm mt-6 p-2 lg:mx-16 xl:w-8/12 xl:mx-auto lg:mt-20">
+      <div className="bg-white border-gray-300 border rounded-sm mt-6 p-2 mx-8 lg:mx-16 xl:w-8/12 xl:mx-auto lg:mt-20">
         <p className="p-2 font-semibold lg:font-normal text-gray-600">
           You can let us know about your experience using Tipnoo clicking
           {' '}
-          <a className="text-indigo-600" href="https://legismusic.typeform.com/to/igbO4azb">here</a>
+          <a className="text-indigo-600" target="blank" rel="noopener noreferrer" href="https://legismusic.typeform.com/to/igbO4azb">here</a>
           .
         </p>
       </div>

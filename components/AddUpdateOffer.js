@@ -352,58 +352,60 @@ const AddUpdateOffer = (props) => {
         )}
         <div
           id="submitBtn"
-          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:flex lg:justify-around lg:py-2 xl:py-0"
+          className="bg-white fixed bottom-0 w-full left-0 border-2 border-gray-200 lg:py-2 xl:py-0"
         >
-          <div className="hidden lg:flex w-11/12 lg:w-7/12 rounded border border-gray-300 p-4 xl:p-0 mt-0 mx-auto lg:m-4 bg-blue-50">
-            <img
-              className="h-16 xl:h-20 w-16 xl:w-20 border border-gray-300 rounded m-2"
-              src={wholeState.file}
-              alt="Your Logo"
-            />
-            <div className="w-4/5 ml-2 text-left lg:flex lg:justify-between lg:my-auto">
-              <div>
-                <h4 className="font-extrabold text-lg lg:text-xl xl:text-2xl">
-                  {(wholeState.playerPosition === '')
-                    ? 'Player Position'
-                    : (<p>{wholeState.playerPosition}</p>)}
-                </h4>
-                <h4 className="font-light text-sm lg:text-base mb-1">
-                  {(wholeState.esportsTeam === '')
-                    ? 'Your Esports Team'
-                    : (<p>{wholeState.esportsTeam}</p>)}
-                </h4>
-              </div>
-              <div className="lg:my-auto">
-                <h4 className="inline-block text-super-xs lg:text-xs xl:text-sm uppercase border p-1 rounded border-black font-bold mr-2">
-                  {(wholeState.primaryGame === '')
-                    ? 'Game 1'
-                    : (<p>{wholeState.primaryGame}</p>)}
-                </h4>
-                <h4 className="inline-block text-super-xs lg:text-xs xl:text-sm uppercase font-bold border p-1 rounded border-black">
-                  {(wholeState.extraGame === '')
-                    ? 'Game 2'
-                    : (<p>{wholeState.extraGame}</p>)}
-                </h4>
-              </div>
-            </div>
-            <h4 className="w-1/5 text-super-xs lg:text-xs py-8 text-center my-auto">1 min ago</h4>
-          </div>
           {((errors.positionDescription) || (errors.howToApply)) && (
-            <p className="text-center text-yellow-600 mt-4 mx-10 font-bold">
-              <ErrorOutlineIcon />
-              {' '}
-              Please fill out all the required fields above
-              (we have marked them in orange) and then press the button again
-            </p>
+          <p className="text-center text-yellow-600 mt-4 mx-10 md:mx-40 font-bold">
+            <ErrorOutlineIcon />
+            {' '}
+            Please fill out all the required fields above
+            (we have marked them in orange) and then press the button again:
+          </p>
           )}
-          <div className="lg:w-2/5 xl:w-3/12 xl:my-auto xl:border-gray-200 xl:border-l-2">
-            <input
-              className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5"
-              type="submit"
-              value={props.submitBtn}
-            />
-            {props.invoiceData && (<p className="text-gray-400 mb-2 lg:mb-0">🔐 Secure payment with Stripe</p>)}
-            {!props.invoiceData && (<p className="text-gray-400 mb-2 lg:mb-0">Changes will take effect immediately</p>)}
+          <div className="lg:flex lg:justify-around ">
+            <div className="hidden lg:flex w-11/12 lg:w-7/12 rounded border border-gray-300 p-4 xl:p-0 mt-0 mx-auto lg:m-4 bg-blue-50">
+              <img
+                className="h-16 xl:h-20 w-16 xl:w-20 border border-gray-300 rounded m-2"
+                src={wholeState.file}
+                alt="Your Logo"
+              />
+              <div className="w-4/5 ml-2 text-left lg:flex lg:justify-between lg:my-auto">
+                <div>
+                  <h4 className="font-extrabold text-lg lg:text-xl xl:text-2xl">
+                    {(wholeState.playerPosition === '')
+                      ? 'Player Position'
+                      : (<p>{wholeState.playerPosition}</p>)}
+                  </h4>
+                  <h4 className="font-light text-sm lg:text-base mb-1">
+                    {(wholeState.esportsTeam === '')
+                      ? 'Your Esports Team'
+                      : (<p>{wholeState.esportsTeam}</p>)}
+                  </h4>
+                </div>
+                <div className="lg:my-auto">
+                  <h4 className="inline-block text-super-xs lg:text-xs xl:text-sm uppercase border p-1 rounded border-black font-bold mr-2">
+                    {(wholeState.primaryGame === '')
+                      ? 'Game 1'
+                      : (<p>{wholeState.primaryGame}</p>)}
+                  </h4>
+                  <h4 className="inline-block text-super-xs lg:text-xs xl:text-sm uppercase font-bold border p-1 rounded border-black">
+                    {(wholeState.extraGame === '')
+                      ? 'Game 2'
+                      : (<p>{wholeState.extraGame}</p>)}
+                  </h4>
+                </div>
+              </div>
+              <h4 className="w-1/5 text-super-xs lg:text-xs py-8 text-center my-auto">1 min ago</h4>
+            </div>
+            <div className="lg:w-2/5 xl:w-3/12 xl:my-auto xl:border-gray-200 xl:border-l-2">
+              <input
+                className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5"
+                type="submit"
+                value={props.submitBtn}
+              />
+              {props.invoiceData && (<p className="text-gray-400 mb-2 lg:mb-0">🔐 Secure payment with Stripe</p>)}
+              {!props.invoiceData && (<p className="text-gray-400 mb-2 lg:mb-0">Changes will take effect immediately</p>)}
+            </div>
           </div>
         </div>
       </form>

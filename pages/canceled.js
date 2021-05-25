@@ -1,7 +1,7 @@
+import Link from 'next/link';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import ButtonPublishOffer from '../components/buttons/Btn-publishOffer';
-import ButtonReturnToHome from '../components/buttons/Btn-returnToHome';
 
 const CancelOffer = () => (
   <div>
@@ -22,7 +22,13 @@ const CancelOffer = () => (
         <p className="text-lg lg:text-2xl mt-8 lg:font-light">
           <b>Or you can just go back to the homepage:</b>
         </p>
-        <ButtonReturnToHome />
+        <div className="mt-8 text-lg bg-yellow-600 hover:bg-yellow-500 transform hover:translate-y-0.5 text-white font-bold py-4 px-4 rounded w-4/5 md:w-3/5 lg:w-2/5 xl:w-2/6 border-b-4 border-r-2 border-yellow-700 mb-4 mx-auto cursor-pointer">
+          <Link
+            href="/"
+          >
+            Return to the homepage
+          </Link>
+        </div>
       </div>
     </div>
     <Footer />
