@@ -23,12 +23,12 @@ const EmailMarketing = (props) => {
   };
 
   return (
-    <div className="pb-4 md:pb-2 pt-5 md:pt-4 lg:pt-2 bg-gray-800 lg:flex lg:flex-row lg:justify-center bottom-0 sticky">
-      <h3 className="text-center font-bold my-auto lg:w-1/5 text-white lg:mr-4">
+    <div className="pb-4 md:pb-2 pt-5 md:pt-4 lg:pt-2 xl:pt-1 bg-gray-800 lg:flex lg:flex-row lg:justify-center bottom-0 sticky">
+      <h3 className="text-center xl:text-lg font-bold my-auto lg:w-1/5 xl:w-3/12 text-white lg:mr-4">
         Get a
         {' '}
         <b>weekly email</b>
-        <br className="hidden lg:block" />
+        <br className="hidden lg:block xl:hidden" />
         {' '}
         of all new eSports offers
       </h3>
@@ -61,10 +61,12 @@ const EmailMarketing = (props) => {
           value="Subscribe"
         />
       </form>
-      <div className="text-right mb-2 lg:mb-6 absolute w-screen bottom-0 lg:bottom-1/5">
+      <div className="text-right mb-2 lg:mb-6 absolute w-4 bottom-0 right-0 lg:bottom-1/5 mr-2">
         <span
           className="text-white text-2xl font-extrabold cursor-pointer mr-4"
           onClick={props.toggleMarketingBar}
+          role="button"
+          tabIndex="0"
         >
           &times;
         </span>

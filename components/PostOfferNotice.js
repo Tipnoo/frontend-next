@@ -1,11 +1,8 @@
 import Link from 'next/link';
 
 const PostOfferNotice = () => (
-  <div className="hidden rounded-md bg-gray-800 w-11/12 lg:w-9/12 m-auto my-3 md:flex md:justify-center md:py-3 px-8">
-    <span className="my-auto" role="img" aria-label="hand">
-      👉
-      {' '}
-    </span>
+  <div className="hidden rounded-md bg-gray-800 w-11/12 lg:w-9/12 xl:w-7/12 m-auto my-3 md:flex md:justify-center md:py-3 xl:py-4 px-8">
+    <img className="h-8 my-auto" src="/images/point.svg" alt="hand pointing" />
     <p className="ml-8  w-2/3 text-white">
       <b>
         Searching for the best player for your team?
