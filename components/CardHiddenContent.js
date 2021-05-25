@@ -24,7 +24,7 @@ const CardHiddenContent = (props) => {
   const needsToBeProPlayer = () => {
     if (props.offer.pro === true) {
       return (
-        <div className="bg-red-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 md:m-auto md:mb-6">
+        <div className="bg-red-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 xl:w-3/5 md:m-auto md:mb-6">
           <ErrorOutlineIcon className="self-center mr-4" />
           <p>
             You need to be a Professional Player to Apply to this position
@@ -33,7 +33,7 @@ const CardHiddenContent = (props) => {
       );
     }
     return (
-      <div className="bg-green-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 md:m-auto md:mb-6">
+      <div className="bg-green-300 flex p-4 mb-4 rounded md:justify-center md:w-4/5 xl:w-3/5 md:m-auto md:mb-6">
         <CheckCircleOutlineIcon className="self-center mr-4" />
         <p>
           You don't need to be a Professional Player to Apply to this position
@@ -132,7 +132,7 @@ const CardHiddenContent = (props) => {
   };
 
   return (
-    <div className="p-8 bg-white md:rounded-b text-left">
+    <div className="p-8 bg-white md:rounded-b text-left cursor-auto">
       {thereIsOffer && (
         <div className="text-sm">
           {needsToBeProPlayer()}
@@ -187,7 +187,7 @@ const CardHiddenContent = (props) => {
               Please reference you found the offer on Tipnoo, this helps us get
               more teams to post here!
             </p>
-            <p className="text-xs text-gray-700 text-center md:mx-8">
+            <p className="text-xs text-gray-700 text-center md:mx-8 xl:w-3/5 xl:mx-auto">
               When applying for an offer, you should NEVER have to pay to apply.
               Also always verify you're actually talking to the
               esports team in the offer and not an imposter. When clicking on

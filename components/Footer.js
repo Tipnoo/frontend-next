@@ -15,13 +15,13 @@ const Footer = () => {
         </div>
         <div className="flex-1 mt-6">
           <Link href="/esports-offer">
-            <b className="text-white block">Post an Offer</b>
+            <b className="text-white block cursor-pointer">Post an Offer</b>
           </Link>
           <Link href="/privacy-cookies">
-            <b className="text-white block">Privacy & Cookies</b>
+            <b className="text-white block cursor-pointer">Privacy & Cookies</b>
           </Link>
           <Link href="/contact">
-            <b className="text-white block">Contact Us</b>
+            <b className="text-white block cursor-pointer">Contact Us</b>
           </Link>
         </div>
       </div>
