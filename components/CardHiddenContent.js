@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-
 import Markdown from 'markdown-to-jsx';
 import PopupApplyToEmail from './popups/Popup-applyToEmail';
 
