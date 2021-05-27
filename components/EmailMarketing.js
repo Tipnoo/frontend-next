@@ -61,7 +61,7 @@ const EmailMarketing = (props) => {
           value="Subscribe"
         />
       </form>
-      <div className="text-right mb-2 lg:mb-6 absolute w-4 bottom-0 right-0 lg:bottom-1/5 mr-2">
+      <div className="text-right mb-2 lg:mb-6 absolute w-4 bottom-0 right-0 lg:bottom-1/5 pr-8">
         <span
           className="text-white text-2xl font-extrabold cursor-pointer mr-4"
           onClick={props.toggleMarketingBar}

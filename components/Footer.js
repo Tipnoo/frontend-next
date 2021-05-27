@@ -14,6 +14,9 @@ const Footer = () => {
           />
         </div>
         <div className="flex-1 mt-6">
+          <Link href="/blog/">
+            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Blog</b>
+          </Link>
           <Link href="/esports-offer">
             <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Post an Offer</b>
           </Link>
@@ -25,7 +28,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <h4 className="text-gray-400 pt-8 pl-8">
+      <h4 className="text-gray-400 bg-gray-800 pt-2 pb-4 pl-8">
         <b>
           {getFullYear()}
           {' '}
