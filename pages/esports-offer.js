@@ -154,7 +154,7 @@ const PostAnOffer = () => {
               <div className="flex justify-center text-center xl:px-8">
                 <img className="h-8 my-auto" src="/images/002-info.svg" alt="info icon" />
                 <div>
-                  <p className="font-bold xl:font-normal xl:px-8">
+                  <p className="font-bold xl:font-normal px-2 md:px-4 xl:px-8">
                     Use the code
                     {' '}
                     <b className="text-indigo-600">LAUNCH</b>

@@ -18,7 +18,7 @@ export default function Home({ allPostsData }) {
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
-              <Link href={`/posts/${id}`}>
+              <Link href={`/blog/${id}`}>
                 <a className="text-blue-700">{title}</a>
               </Link>
               <br />
