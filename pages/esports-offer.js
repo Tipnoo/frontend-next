@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-
-
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';

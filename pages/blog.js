@@ -1,10 +1,13 @@
 import getSortedPostsData from '../lib/posts';
+import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 
 export default function Home({ allPostsData }) {
   return (
     <div>
+      <HeaderPostAnOffer
+        title="Blog"
+      />
       <section>
-        <h2>Blog</h2>
         <ul>
           {allPostsData.map(({ id, date, title }) => (
             <li key={id}>
