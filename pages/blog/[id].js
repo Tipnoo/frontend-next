@@ -1,8 +1,9 @@
 /* eslint-disable react/no-danger */
 import Head from 'next/head';
 import { parseISO, format } from 'date-fns';
-import Layout from '../../components/blogLayout';
+import Layout from '../../components/blogPostsLayout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
+import HeaderPostAnOffer from '../../components/headers/Header-postAnOffer';
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -32,11 +33,12 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <h1 className="text-xl font-bold">{postData.title}</h1>
-      <br />
-      {postData.id}
-      <br />
-      <Date dateString={postData.date} />
+      <HeaderPostAnOffer
+        title={postData.title}
+      />
+      <div className="text-gray-600">
+        <Date dateString={postData.date} />
+      </div>
       <br />
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
     </Layout>

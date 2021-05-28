@@ -1,8 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 
-const name = '[Your Name]';
 export const siteTitle = 'Next.js Sample Website';
 
 const BlogLayout = ({ children, home }) => (
@@ -22,46 +20,11 @@ const BlogLayout = ({ children, home }) => (
       <meta name="og:title" content={siteTitle} />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
-    <header className="">
-      {home ? (
-        <>
-          <Image
-            priority
-            src="/images/profile.jpg"
-            className=""
-            height={144}
-            width={144}
-            alt={name}
-          />
-          <h1 className="">{name}</h1>
-        </>
-      ) : (
-        <>
-          <Link href="/">
-            <a>
-              <Image
-                priority
-                src="/images/profile.jpg"
-                className=""
-                height={108}
-                width={108}
-                alt={name}
-              />
-            </a>
-          </Link>
-          <h2 className="">
-            <Link href="/">
-              <a className="">{name}</a>
-            </Link>
-          </h2>
-        </>
-      )}
-    </header>
     <main>{children}</main>
     {!home && (
     <div className="">
-      <Link href="/">
-        <a>← Back to home</a>
+      <Link href="/blog">
+        <a className="text-blue-600 hover:underline">← Back to Blog</a>
       </Link>
     </div>
     )}
