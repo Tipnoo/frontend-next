@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
-import getSortedPostsData from '../lib/posts';
+import { getSortedPostsData } from '../lib/posts';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 
 const Date = ({ dateString }) => {
