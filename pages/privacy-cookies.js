@@ -2,8 +2,9 @@ import { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
+import { getSortedContent } from '../lib/content';
 
-const PrivacyCookies = () => {
+const PrivacyCookies = ({ allContentData }) => {
   const [openedDropdown, setOpenedDropdown] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
 
@@ -13,6 +14,8 @@ const PrivacyCookies = () => {
   };
 
   const eachDropdown = () => {
+    console.log('conteeentillo', allContentData);
+
     const pageContent = [
       { title: 'Web Owner', content: '#webowner111' },
       { title: 'Protection of Personal Data', content: 'Protection of Personal Data111' },
@@ -60,3 +63,12 @@ const PrivacyCookies = () => {
 };
 
 export default PrivacyCookies;
+
+export async function getStaticProps() {
+  const allContentData = getSortedContent();
+  return {
+    props: {
+      allContentData,
+    },
+  };
+}
