@@ -15,7 +15,6 @@ const PrivacyCookies = ({ allContentData }) => {
 
   const eachDropdown = () => {
     console.log('conteeentillo', allContentData);
-
     const pageContent = [
       { title: 'Web Owner', content: '#webowner111' },
       { title: 'Protection of Personal Data', content: 'Protection of Personal Data111' },
@@ -65,7 +64,7 @@ const PrivacyCookies = ({ allContentData }) => {
 export default PrivacyCookies;
 
 export async function getStaticProps() {
-  const allContentData = getSortedContent();
+  const allContentData = await getSortedContent();
   return {
     props: {
       allContentData,
