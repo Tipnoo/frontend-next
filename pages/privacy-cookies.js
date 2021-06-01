@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
-import { getSortedContent } from '../lib/content';
+import getSortedContent from '../lib/content';
 
 const PrivacyCookies = ({ allContentData }) => {
   const [openedDropdown, setOpenedDropdown] = useState(false);
@@ -16,15 +16,15 @@ const PrivacyCookies = ({ allContentData }) => {
   const eachDropdown = () => {
     console.log('conteeent', allContentData);
 
-    const pageContent = [
-      { title: 'Web Owner', content: '#webowner111' },
-      { title: 'Protection of Personal Data', content: 'Protection of Personal Data111' },
-      { title: 'Collection & Usage of Information', content: 'Collection & Usage of Information111' },
-      { title: 'Cookie Policy', content: 'Cookie Policy111' },
-      { title: 'Legal Responsibility for Content', content: 'Legal Responsibility for Content111' },
-      { title: 'What we Expect from our Users', content: 'What we Expect from our Users111' },
-    ];
-    return pageContent.map((eachContent, index) => (
+    // const pageContent = [
+    //   { title: 'Web Owner', content: '#webowner111' },
+    //   { title: 'Protection of Personal Data', content: 'Protection of Personal Data111' },
+    //   { title: 'Collection & Usage of Information', content: 'Collection & Usage of Information111' },
+    //   { title: 'Cookie Policy', content: 'Cookie Policy111' },
+    //   { title: 'Legal Responsibility for Content', content: 'Legal Responsibility for Content111' },
+    //   { title: 'What we Expect from our Users', content: 'What we Expect from our Users111' },
+    // ];
+    return allContentData.map((eachContent, index) => (
       <div key={index}>
         <div className="bg-white border-gray-400 border rounded-sm mt-4 p-2 mx-4 flex items-center md:w-9/12 xl:w-6/12 md:m-auto md:mt-4 cursor-pointer">
           <div>
@@ -41,7 +41,7 @@ const PrivacyCookies = ({ allContentData }) => {
         </div>
         {openedDropdown && activeDropdown === index && (
         <div className="bg-indigo-100 rounded-sm p-2 mx-4 md:w-9/12 xl:w-6/12 md:m-auto">
-          <p className="p-2 font-semibold text-gray-600">{eachContent.content}</p>
+          <div dangerouslySetInnerHTML={{__html: eachContent.contentHtml }} className="p-2 font-semibold text-gray-600" />
         </div>
         )}
       </div>
