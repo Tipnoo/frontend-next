@@ -25,5 +25,7 @@ module.exports = {
     },
   },
   variants: { borderColor: ['responsive', 'hover', 'focus', 'focus-within'] },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
