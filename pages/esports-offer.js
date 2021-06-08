@@ -34,8 +34,15 @@ const initialValues = {
   imgActualSize: null,
 };
 
+const limit500CharError = {
+  positionDescription500: false,
+  positionRequirements500: false,
+  howToApply500: false,
+};
+
 const PostAnOffer = () => {
   const [values, setValues] = useState(initialValues);
+  const [error500Char, setError500Char] = useState(limit500CharError);
   const [stripePromise, setStripePromise] = useState(() => loadStripe(process.env.STRIPE_PUBLIC_KEY));
 
   useEffect(() => {
@@ -72,14 +79,32 @@ const PostAnOffer = () => {
 
   const mdeHandleChangeDescription = (e) => {
     setValues({ ...values, positionDescription: e });
+    if (values.positionDescription.length > 499) {
+      setError500Char({ ...error500Char, positionDescription500: true });
+      console.log('more than 500 characters on Position Description, Stripe doesnt allow on its metadata');
+    } else {
+      setError500Char({ ...error500Char, positionDescription500: false });
+    }
   };
 
   const mdeHandleChangeRequirements = (e) => {
     setValues({ ...values, positionRequirements: e });
+    if (values.positionRequirements.length > 499) {
+      setError500Char({ ...error500Char, positionRequirements500: true });
+      console.log('more than 500 characters on Position Requirements');
+    } else {
+      setError500Char({ ...error500Char, positionRequirements500: false });
+    }
   };
 
   const mdeHandleChangeHowToApply = (e) => {
     setValues({ ...values, howToApply: e });
+    if (values.howToApply.length > 499) {
+      setError500Char({ ...error500Char, howToApply500: true });
+      console.log('more than 500 characters on How to Apply');
+    } else {
+      setError500Char({ ...error500Char, howToApply500: false });
+    }
   };
 
   const closePopupImgSize = () => {
@@ -189,6 +214,7 @@ const PostAnOffer = () => {
                 submitBtn="Proceed to Checkout - $99"
                 invoiceData
                 wholeState={values}
+                error500char={error500Char}
               />
             </Elements>
             <PreviewOffer wholeState={values} marginBottom="mb-32 lg:mb-44" />

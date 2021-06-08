@@ -30,7 +30,10 @@ const AddUpdateOffer = (props) => {
     props.closePopup();
   };
 
-  const { errors, handleSubmit, wholeState } = props;
+  const {
+    errors, handleSubmit, wholeState, error500char,
+  } = props;
+  console.log('errors 500 characters', error500char);
 
   return (
     <div>
