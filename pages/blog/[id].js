@@ -4,6 +4,7 @@ import { parseISO, format } from 'date-fns';
 import Layout from '../../components/blogPostsLayout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import HeaderPostAnOffer from '../../components/headers/Header-postAnOffer';
+import SEOHeader from '../../components/headers/Seo-Header';
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
@@ -30,9 +31,11 @@ const Date = ({ dateString }) => {
 export default function Post({ postData }) {
   return (
     <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+      <SEOHeader
+        title={postData.title}
+        description={postData.description}
+        type="article"
+      />
       <HeaderPostAnOffer
         title={postData.title}
       />

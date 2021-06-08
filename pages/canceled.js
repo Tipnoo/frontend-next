@@ -1,3 +1,4 @@
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
@@ -5,6 +6,7 @@ import ButtonPublishOffer from '../components/buttons/Btn-publishOffer';
 
 const CancelOffer = () => (
   <div>
+    <NextSeo noindex />
     <HeaderPostAnOffer
       title="Your order has been Cancelled"
     />

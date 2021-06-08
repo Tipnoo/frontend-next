@@ -1,9 +1,11 @@
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 
 const OfferDeleted = () => (
   <div>
+    <NextSeo noindex />
     <HeaderPostAnOffer
       title="Job Done!"
       subtitle="Your Offer has been successfully deleted"

@@ -3,6 +3,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import getSortedContent from '../lib/content';
+import SEOHeader from '../components/headers/Seo-Header';
 
 const PrivacyCookies = ({ allContentData }) => {
   const [openedDropdown, setOpenedDropdown] = useState(false);
@@ -33,7 +34,7 @@ const PrivacyCookies = ({ allContentData }) => {
         </div>
         {openedDropdown && activeDropdown === index && (
         <div className="bg-indigo-100 rounded-sm mx-4 p-4 md:py-4 md:px-8 md:w-9/12 xl:w-6/12 md:mx-auto text-left prose max-w-none">
-          <div dangerouslySetInnerHTML={{__html: eachContent.contentHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: eachContent.contentHtml }} />
         </div>
         )}
       </div>
@@ -42,6 +43,11 @@ const PrivacyCookies = ({ allContentData }) => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <SEOHeader
+        title="Privacy policy and cookies - Tipnoo"
+        description="Read our privacy policy here and what we do with the data we receive on Tipnoo"
+        type="website"
+      />
       <HeaderPostAnOffer
         title="Privacy Policy"
         subtitle="and Cookie Settings"

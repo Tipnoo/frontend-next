@@ -5,6 +5,7 @@ import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import AddUpdateOffer from '../components/AddUpdateOffer';
 import PreviewOffer from '../components/PreviewOffer';
 import Submitting from '../components/messages/Submitting';
+import SEOHeader from '../components/headers/Seo-Header';
 
 import { createCheckoutSession } from '../services/apiClient/offers';
 
@@ -139,6 +140,11 @@ const PostAnOffer = () => {
 
   return (
     <div>
+      <SEOHeader
+        title="Publish an eSport offer to find professional players - Tipnoo"
+        description="Publish your open position on Tipnoo and find the best eSports gamer for your team within hours! Reach thousands of professional and amateur players, complete your Roster here."
+        type="website"
+      />
       <HeaderPostAnOffer
         title="Post your Offer on Tipnoo and Find the best players for your eSports Team within hours"
       />

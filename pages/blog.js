@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
 import { getSortedPostsData } from '../lib/posts';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
+import SEOHeader from '../components/headers/Seo-Header';
 
 const Date = ({ dateString }) => {
   const date = parseISO(dateString);
@@ -11,6 +12,11 @@ const Date = ({ dateString }) => {
 export default function Home({ allPostsData }) {
   return (
     <div>
+      <SEOHeader
+        title="eSports Blog - Tipnoo"
+        description="Read all the news in our new blog."
+        type="website"
+      />
       <HeaderPostAnOffer
         title="Blog"
       />

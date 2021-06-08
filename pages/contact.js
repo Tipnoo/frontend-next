@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import Footer from '../components/Footer';
+import SEOHeader from '../components/headers/Seo-Header';
 
 const ContactUs = () => (
   <div>
+    <SEOHeader
+      title="Contact Us - Tipnoo"
+      description="Contact us here, we always answer within minutes!"
+      type="website"
+    />
     <HeaderPostAnOffer
       title="Contact Us"
       subtitle="Let us know how we can help"

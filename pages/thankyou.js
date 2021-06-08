@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { NextSeo } from 'next-seo';
 
 import queryString from 'query-string';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
@@ -79,6 +80,7 @@ const ThankYouDOI = () => {
           case STATUS.OK:
             return (
               <div>
+                <NextSeo noindex />
                 <HeaderPostAnOffer
                   title="Success!"
                   subtitle="You have been Subscribed"

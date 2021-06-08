@@ -1,9 +1,11 @@
+import { NextSeo } from 'next-seo';
 import Footer from '../components/Footer';
 import HeaderPostAnOffer from '../components/headers/Header-postAnOffer';
 import ButtonReturnToHome from '../components/buttons/Btn-returnToHome';
 
 const OfferPublished = () => (
   <div>
+    <NextSeo noindex />
     <HeaderPostAnOffer
       title="Congratulations!"
       subtitle="Your Offer has been published"
