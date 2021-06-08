@@ -1,0 +1,9 @@
+# Allow all user agents.
+User-agent: *
+Allow: /
+
+# User agent "Googlebot" should not crawl the `https://tipnoo.com/esports-offer/` folder or any of its subdirectories.
+User-agent: Googlebot
+Disallow: /esports-offer/
+
+Sitemap: https://www.tipnoo.com/sitemap.xml
