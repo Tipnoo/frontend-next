@@ -98,13 +98,13 @@ const PostAnOffer = () => {
       setValues({ ...values, isSubmitting: true });
       try {
         const stripe = await stripePromise;
-        console.log('got here 1 ==>>', stripe);
+        // console.log('got here 1 ==>>', stripe);
         const { data: { id } } = await createCheckoutSession(values);
 
         const { error } = await stripe.redirectToCheckout({
           sessionId: id,
         });
-        console.log('got here 2 ==>>', error);
+        // console.log('got here 2 ==>>', error);
       } catch (err) {
         console.log('error adding offer', err);
       }

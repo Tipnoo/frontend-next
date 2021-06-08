@@ -87,7 +87,6 @@ const UpdateOfferID = () => {
     if (errors.positionDescription !== '' && errors.howToApply !== '') {
       setIsSubmitting(true);
       try {
-        console.log('got here 1 submit');
         await editOffer(id, offer);
         await router.push('/');
       } catch (err) {

@@ -49,15 +49,15 @@ const ThankYouDOI = () => {
     setUrlEmail(values.email);
     setUrlHash(values.hash);
     setSecret(values.email + values.hash);
-    console.log('secretito1', secret);
+    // console.log('secretito1', secret);
   }, []);
 
   useEffect(() => {
     if (secret) {
       getSecretFromDb({ secret })
         .then((res) => {
-          console.log('secretito2', secret);
-          console.log('response secret from backend', res.data.secret);
+          // console.log('secretito2', secret);
+          // console.log('response secret from backend', res.data.secret);
           if (res.data.secret === secret) {
             setDbSubscriberName(res.data.name);
             subscribeTheEmail();

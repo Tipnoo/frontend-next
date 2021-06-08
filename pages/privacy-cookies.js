@@ -14,10 +14,8 @@ const PrivacyCookies = ({ allContentData }) => {
     setActiveDropdown(index);
   };
 
-  const eachDropdown = () => {
-    console.log('conteeent', allContentData);
-
-    return allContentData.map((eachContent, index) => (
+  const eachDropdown = () =>
+    allContentData.map((eachContent, index) => (
       <div key={index}>
         <div className="bg-white border-gray-400 border rounded-sm mt-4 p-2 mx-4 flex items-center md:w-9/12 xl:w-6/12 md:m-auto md:mt-4 cursor-pointer">
           <div>
@@ -39,8 +37,6 @@ const PrivacyCookies = ({ allContentData }) => {
         )}
       </div>
     ));
-  };
-
   return (
     <div className="flex flex-col min-h-screen">
       <SEOHeader
