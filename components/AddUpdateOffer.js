@@ -193,6 +193,9 @@ const AddUpdateOffer = (props) => {
               className={`${
                 errors.positionDescription
                 && 'border-4 border-yellow-500 rounded-md mb-4'
+              } ${
+                props.error500char.positionDescription500
+                && 'border-4 border-red-500 rounded-md mb-4'
               } text-left`}
               name="positionDescription"
               id="positionDescription"
@@ -200,28 +203,44 @@ const AddUpdateOffer = (props) => {
               options={{
                 autofocus: true,
                 minHeight: '200px',
+                status: false,
               }}
               onChange={mdeHandleChangeDesc}
             />
+            {props.error500char.positionDescription500 && (
+            <p className="text-left text-xs lg:text-sm text-red-600 mb-2">
+              Characters are now limited to 500, please shorten your description. You can add more than 500 once you publish your offer :)
+            </p>
+            )}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-6">
             <label className="form-label" htmlFor="positionRequirements">
               Position Requirements
             </label>
             <SimpleMDE
-              className="text-left -mb-8"
+              className={`${
+                props.error500char.positionRequirements500
+                && 'border-4 border-red-500 rounded-md mb-4'} text-left -mb-8`}
               name="positionRequirements"
               id="positionRequirements"
               value={props.positionRequirements}
               options={{
                 autofocus: true,
                 minHeight: '200px',
+                status: false,
               }}
               onChange={mdeHandleChangeReq}
             />
-            <p className="text-left text-xs lg:text-sm text-gray-600 mb-4">Not required</p>
+            {!props.error500char.positionRequirements500 && (
+            <p className="text-left text-xs lg:text-sm text-gray-600 mt-10">Not required</p>
+            )}
+            {props.error500char.positionRequirements500 && (
+            <p className="text-left text-xs lg:text-sm text-red-600 mt-10">
+              Characters are now limited to 500, please shorten your requirements. You can add more than 500 once you publish your offer :)
+            </p>
+            )}
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col mt-6">
             <label className="form-label" htmlFor="salary">
               Annual Salary (if applicable)
             </label>
@@ -254,6 +273,9 @@ const AddUpdateOffer = (props) => {
               className={`${
                 errors.howToApply
                 && 'border-4 border-yellow-500 rounded-md mb-4'
+              } ${
+                props.error500char.howToApply500
+                && 'border-4 border-red-500 rounded-md mb-4'
               } text-left`}
               name="howToApply"
               id="howToApply"
@@ -261,11 +283,17 @@ const AddUpdateOffer = (props) => {
               options={{
                 autofocus: true,
                 minHeight: '200px',
+                status: false,
               }}
               onChange={mdeHandleChangeApply}
             />
+            {props.error500char.howToApply500 && (
+            <p className="text-left text-xs lg:text-sm text-red-600">
+              Characters are now limited to 500, please shorten your description. You can add more than 500 once you publish your offer :)
+            </p>
+            )}
           </div>
-          <div className="flex flex-col mt-2">
+          <div className="flex flex-col mt-6">
             <label className="form-label" htmlFor="applyURLorEmail">
               Apply URL -or- Apply Email*
             </label>
