@@ -429,7 +429,10 @@ const AddUpdateOffer = (props) => {
             </div>
             <div className="lg:w-2/5 xl:w-3/12 xl:my-auto xl:border-gray-200 xl:border-l-2">
               <input
-                className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5"
+                // className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5"
+                className={(error500char.positionDescription500 || error500char.positionRequirements500 || error500char.howToApply500)
+                  ? 'bg-gray-400 text-xl text-white border-b-4 border-gray-500 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform'
+                  : 'bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5'}
                 disabled={error500char.positionDescription500 || error500char.positionRequirements500 || error500char.howToApply500}
                 type="submit"
                 value={props.submitBtn}
