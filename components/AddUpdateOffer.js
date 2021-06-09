@@ -33,7 +33,6 @@ const AddUpdateOffer = (props) => {
   const {
     errors, handleSubmit, wholeState, error500char,
   } = props;
-  console.log('errors 500 characters', error500char);
 
   return (
     <div>
@@ -194,7 +193,7 @@ const AddUpdateOffer = (props) => {
                 errors.positionDescription
                 && 'border-4 border-yellow-500 rounded-md mb-4'
               } ${
-                props.error500char.positionDescription500
+                error500char.positionDescription500
                 && 'border-4 border-red-500 rounded-md mb-4'
               } text-left`}
               name="positionDescription"
@@ -207,7 +206,7 @@ const AddUpdateOffer = (props) => {
               }}
               onChange={mdeHandleChangeDesc}
             />
-            {props.error500char.positionDescription500 && (
+            {error500char.positionDescription500 && (
             <p className="text-left text-xs lg:text-sm text-red-600 mb-2">
               Characters are now limited to 500, please shorten your description. You can add more than 500 once you publish your offer :)
             </p>
@@ -219,7 +218,7 @@ const AddUpdateOffer = (props) => {
             </label>
             <SimpleMDE
               className={`${
-                props.error500char.positionRequirements500
+                error500char.positionRequirements500
                 && 'border-4 border-red-500 rounded-md mb-4'} text-left -mb-8`}
               name="positionRequirements"
               id="positionRequirements"
@@ -231,10 +230,10 @@ const AddUpdateOffer = (props) => {
               }}
               onChange={mdeHandleChangeReq}
             />
-            {!props.error500char.positionRequirements500 && (
+            {!error500char.positionRequirements500 && (
             <p className="text-left text-xs lg:text-sm text-gray-600 mt-10">Not required</p>
             )}
-            {props.error500char.positionRequirements500 && (
+            {error500char.positionRequirements500 && (
             <p className="text-left text-xs lg:text-sm text-red-600 mt-10">
               Characters are now limited to 500, please shorten your requirements. You can add more than 500 once you publish your offer :)
             </p>
@@ -274,7 +273,7 @@ const AddUpdateOffer = (props) => {
                 errors.howToApply
                 && 'border-4 border-yellow-500 rounded-md mb-4'
               } ${
-                props.error500char.howToApply500
+                error500char.howToApply500
                 && 'border-4 border-red-500 rounded-md mb-4'
               } text-left`}
               name="howToApply"
@@ -287,7 +286,7 @@ const AddUpdateOffer = (props) => {
               }}
               onChange={mdeHandleChangeApply}
             />
-            {props.error500char.howToApply500 && (
+            {error500char.howToApply500 && (
             <p className="text-left text-xs lg:text-sm text-red-600">
               Characters are now limited to 500, please shorten your description. You can add more than 500 once you publish your offer :)
             </p>
@@ -431,6 +430,7 @@ const AddUpdateOffer = (props) => {
             <div className="lg:w-2/5 xl:w-3/12 xl:my-auto xl:border-gray-200 xl:border-l-2">
               <input
                 className="bg-red-600 hover:bg-red-700 text-xl text-white border-b-4 hover:border-red-900 border-red-800 font-bold py-3 lg:py-4 px-6 rounded w-4/5 md:w-3/5 lg:w-4/5 xl:w-4/5 mt-4 mb-2 cursor-pointer transform hover:translate-y-0.5"
+                disabled={error500char.positionDescription500 || error500char.positionRequirements500 || error500char.howToApply500}
                 type="submit"
                 value={props.submitBtn}
               />
