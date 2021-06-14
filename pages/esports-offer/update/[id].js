@@ -213,6 +213,7 @@ const UpdateOfferID = () => {
                   closePopup={closePopupImgSize}
                   imgActualSize={imgActualSize}
                   wholeState={offer}
+                  error500char={false}
                 />
                 <PreviewOffer
                   wholeState={offer}

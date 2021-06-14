@@ -91,6 +91,7 @@ const CardHiddenContent = (props) => {
   const quote = ({ children, ...props }) => (
     <blockquote {...props}>{children}</blockquote>
   );
+  const link = ({ children, ...props }) => <a {...props}>{children}</a>;
   const ulist = ({ children, ...props }) => <ul {...props}>{children}</ul>;
   const olist = ({ children, ...props }) => <ol {...props}>{children}</ol>;
 
@@ -104,7 +105,31 @@ const CardHiddenContent = (props) => {
     h1: {
       component: heading,
       props: {
+        className: 'text-3xl font-bold mb-2',
+      },
+    },
+    h2: {
+      component: heading,
+      props: {
         className: 'text-2xl font-bold mb-2',
+      },
+    },
+    h3: {
+      component: heading,
+      props: {
+        className: 'text-xl font-bold mb-2',
+      },
+    },
+    h4: {
+      component: heading,
+      props: {
+        className: 'text-lg font-bold mb-2',
+      },
+    },
+    a: {
+      component: link,
+      props: {
+        className: 'text-blue-400 font-bold',
       },
     },
     blockquote: {
@@ -127,6 +152,8 @@ const CardHiddenContent = (props) => {
       },
     },
   };
+
+  console.log('overrides', overridesOptions);
 
   return (
     <div className="p-8 bg-white md:rounded-b text-left cursor-auto">
