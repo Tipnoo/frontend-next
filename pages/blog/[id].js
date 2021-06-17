@@ -1,5 +1,4 @@
 /* eslint-disable react/no-danger */
-import Head from 'next/head';
 import { parseISO, format } from 'date-fns';
 import Layout from '../../components/blogPostsLayout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
