@@ -3,12 +3,12 @@ import React from 'react';
 const Submitting = () => (
   <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
     <img
-      className="h-32 mx-auto pt-4"
+      className="h-32 md:h-40 xl:h-42 mx-auto pt-4"
       src="/images/publishing-robot.png"
       alt="email"
     />
-    <div className="w-5/6 mx-auto mt-6">
-      <p className="text-2xl font-bold">
+    <div className="w-5/6 md:w-3/6 xl:w-2/6 mx-auto mt-6">
+      <p className="text-2xl xl:text-3xl font-bold">
         Our robots are redirecting you to the payment page...
       </p>
       <p className="mt-4 p-2 font-semibold text-gray-500">
