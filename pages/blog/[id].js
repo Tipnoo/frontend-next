@@ -7,6 +7,7 @@ import SEOHeader from '../../components/headers/Seo-Header';
 
 export async function getStaticPaths() {
   const paths = getAllPostIds();
+  console.log('blog post paths', paths);
   return {
     paths,
     fallback: false,

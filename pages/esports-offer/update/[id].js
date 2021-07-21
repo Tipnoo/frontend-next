@@ -10,6 +10,7 @@ import PopupDeleteOffer from '../../../components/popups/Popup-deleteOffer';
 import Loading from '../../../components/messages/Loading';
 import Error from '../../../components/messages/ErrorAlert';
 import Footer from '../../../components/Footer';
+// import getAllOfferIds from '../../../lib/idPaths';
 
 import { getOffer, editOffer, deleteOffer } from '../../../services/apiClient/offers';
 
@@ -25,6 +26,24 @@ const errorValues = {
   imgFileSize: false,
 };
 
+// export async function getStaticPaths() {
+//   const paths = getAllOfferIds();
+//   console.log('Offer ID paths', paths);
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps() {
+//   const postData = await getAllOfferIds();
+//   return {
+//     props: {
+//       postData,
+//     },
+//   };
+// }
+
 const UpdateOfferID = () => {
   const [offer, setOffer] = useState(null);
   const [error, setError] = useState(undefined);
@@ -34,9 +53,6 @@ const UpdateOfferID = () => {
   const [imgActualSize, setImgActualSize] = useState(null);
   const [status, setStatus] = useState(STATUS.LOADING);
   const router = useRouter();
-
-  // getserversideprops
-  // midudev
 
   const { id } = router.query;
 
