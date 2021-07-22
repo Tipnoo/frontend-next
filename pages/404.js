@@ -7,7 +7,7 @@ const NotFoundPage = () => (
   <div>
     <NextSeo noindex />
     <HeaderPostAnOffer
-      title="Page Not Found"
+      title="Page Not Found!"
       subtitle="They call it a 404 Error"
     />
     <div className="bg-gray-100 text-center rounded-b text-teal-darkest px-2 py-3 shadow-md h-screen">
