@@ -17,14 +17,6 @@ const Footer = () => {
           <Link href="/blog/">
             <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Blog</b>
           </Link>
-
-          <Link href="https://tipnoo.com/esports-offer/update/60cb262c27da2b00150a6f8a/">
-            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Tipnoo</b>
-          </Link>
-          <Link href="https://dev-tipnoo-nextjs.netlify.app/esports-offer/update/60cb262c27da2b00150a6f8a/">
-            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">DEV Tipnoo</b>
-          </Link>
-
           <Link href="/esports-offer">
             <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Post an Offer</b>
           </Link>
