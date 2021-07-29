@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const HeaderPostAnOffer = (props) => (
   <div
-    className="bg-cover shadow-2xl lg:bg-center"
+    className="bg-cover flex flex-col relative h-64 md:h-60 lg:h-60"
     style={{
-      backgroundImage: 'url(/images/tipnoo-home-1.jpg)',
+      backgroundImage: 'url(/images/tipnoo-homepage.jpg)',
     }}
   >
     <div className="w-screen">
@@ -20,7 +20,7 @@ const HeaderPostAnOffer = (props) => (
           </a>
         </Link>
         <Link href="/">
-          <a className="absolute right-0 z-40 p-2 md:px-4 md:text-lg mr-4 lg:mr-12 mt-4 text-center border-b-4 hover:border-indigo-900 border-indigo-800 bg-indigo-600 hover:bg-indigo-800 text-white font-bold rounded">
+          <a className="absolute right-0 z-40 p-2 md:px-4 md:text-lg mr-4 lg:mr-12 mt-4 text-center border-2 border-b-4 hover:border-white border-black bg-white hover:bg-black text-black hover:text-white font-bold rounded">
             Homepage
           </a>
         </Link>

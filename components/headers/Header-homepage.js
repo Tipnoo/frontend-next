@@ -10,7 +10,7 @@ const Headerhomepage = (props) => {
     <div
       className="bg-cover flex flex-col relative h-64 md:h-72 lg:h-80"
       style={{
-        backgroundImage: 'url(/images/tipnoo-home-8.jpg)',
+        backgroundImage: 'url(/images/tipnoo-homepage.jpg)',
       }}
     >
       <div className="w-screen">
@@ -26,7 +26,7 @@ const Headerhomepage = (props) => {
             </a>
           </Link>
           <Link href="/esports-offer">
-            <a className="fixed right-0 z-40 p-2 md:px-4 md:text-lg mr-4 lg:mr-12 mt-4 text-center border-b-4 hover:border-yellow-800 border-yellow-600 bg-yellow-500 hover:bg-yellow-700 text-white font-bold rounded">
+            <a className="fixed right-0 z-40 p-2 md:px-4 md:text-lg mr-4 lg:mr-12 mt-4 text-center border-2 border-b-4 hover:border-white border-black bg-white hover:bg-black text-black hover:text-white font-bold rounded">
               Post Offer
             </a>
           </Link>

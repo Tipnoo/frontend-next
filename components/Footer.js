@@ -4,7 +4,7 @@ const Footer = () => {
   const getFullYear = () => new Date().getFullYear();
 
   return (
-    <div className="w-screen bg-gray-800 h-44 text-white text-center border-t-4 border-purple-800">
+    <div className="w-screen bg-gray-800 h-44 text-white text-center border-t-4 border-gray-200">
       <div className="flex flex-row">
         <div className="flex-1">
           <img
@@ -15,16 +15,16 @@ const Footer = () => {
         </div>
         <div className="flex-1 mt-6">
           <Link href="/blog/">
-            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Blog</b>
+            <b className="text-white block cursor-pointer lg:text-lg">Our Blog</b>
           </Link>
           <Link href="/esports-offer">
-            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Post an Offer</b>
+            <b className="text-white block cursor-pointer lg:text-lg">Post an Offer</b>
           </Link>
           <Link href="/privacy-cookies">
-            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Privacy & Cookies</b>
+            <b className="text-white block cursor-pointer lg:text-lg">Privacy & Cookies</b>
           </Link>
           <Link href="/contact">
-            <b className="text-white block cursor-pointer lg:text-lg xl:text-xl">Contact Us</b>
+            <b className="text-white block cursor-pointer lg:text-lg">Contact Us</b>
           </Link>
         </div>
       </div>

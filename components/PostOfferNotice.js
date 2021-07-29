@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const PostOfferNotice = () => (
-  <div className="hidden rounded-md bg-gray-800 w-11/12 lg:w-9/12 xl:w-7/12 m-auto my-3 md:flex md:justify-center md:py-3 xl:py-4 px-8">
+  <div className="hidden rounded-md bg-gray-700 w-11/12 lg:w-9/12 xl:w-7/12 m-auto my-3 md:flex md:justify-center md:py-3 xl:py-4 px-8">
     <img className="h-8 my-auto" src="/images/point.svg" alt="hand pointing" />
     <p className="ml-8  w-2/3 text-white">
       <b>
@@ -13,7 +13,7 @@ const PostOfferNotice = () => (
       </b>
     </p>
     <Link href="/esports-offer">
-      <a className="p-2 my-auto text-center border-b-4 bg-gray-800 hover:text-white text-red-600 border-2 border-red-600 font-bold rounded">
+      <a className="p-2 my-auto text-center border-b-4 bg-gray-700 hover:text-red-600 text-white border-2 border-white hover:border-red-600 font-bold rounded">
         Post an Offer
       </a>
     </Link>
